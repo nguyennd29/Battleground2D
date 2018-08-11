@@ -14,14 +14,14 @@ public class EnemyFollow extends GameObject {
     public EnemyFollow(){
         this.velocity=new Vector2D();
         this.renderer = new ImageRenderer("resources/images/FlameDemon Evolved.png",100,100);
-       this.boxCollider =new BoxCollider(40,40);
+       this.boxCollider =new BoxCollider(100,100);
     }
     @Override
     public void run() {
         super.run();
         update();
         this.position.addUp(this.velocity);
-        this.boxCollider.position.set(this.position.x-20,this.position.y-20);
+        this.boxCollider.position.set(this.position.x-50,this.position.y-50);
     }
 
 

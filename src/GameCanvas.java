@@ -1,9 +1,9 @@
 import base.GameObjectManager;
 import game.background.Background;
 import game.background.MapCreator;
+import game.enemy.EnemyCreate;
 import game.enemyfollow.EnemyFollowCreate;
 import game.player.Player;
-import game.star.StarCreate;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,9 +38,9 @@ public class GameCanvas extends JPanel {
     private void setupCharacter() {
         GameObjectManager.instance.add(new Background());
         mapCreator.run();
-       // GameObjectManager.instance.add(new StarCreate());
+       //GameObjectManager.instance.add(new StarCreate());
         GameObjectManager.instance.add(new EnemyFollowCreate());
-        //GameObjectManager.instance.add(new EnemyCreate());
+        GameObjectManager.instance.add(new EnemyCreate());
 
         this.setupPlayer();
 
@@ -59,7 +59,6 @@ public class GameCanvas extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         g.drawImage(this.backBuffered, 0, 0, null);
-
     }
 
     public void renderAll() {
@@ -72,6 +71,5 @@ public class GameCanvas extends JPanel {
 
         GameObjectManager.instance.runAll();
     }
-
 
 }

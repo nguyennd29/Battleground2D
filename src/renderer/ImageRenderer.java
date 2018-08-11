@@ -17,6 +17,7 @@ public class ImageRenderer implements Renderer {
         this.width=width;
         this.height=height;
         this.image=this.loadImage(path);
+
     }
 
     private BufferedImage loadImage(String path) {

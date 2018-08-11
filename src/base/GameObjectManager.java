@@ -1,8 +1,10 @@
 package base;
 
+import game.enemy.Enemies;
 import game.enemyfollow.EnemyFollow;
 import game.player.BulletPlayer;
 import game.player.Player;
+import game.star.Star;
 import physic.BoxCollider;
 
 import java.awt.*;
@@ -43,21 +45,45 @@ public class GameObjectManager {
 //                return (Player)gameObject;
 //        }
 
-
         return (Player) this.list.stream()
                 .filter(gameObject -> gameObject instanceof Player)
                 .findFirst()
                 .orElse(null);
     }
 
-    public EnemyFollow checkCollision(BulletPlayer bulletPlayer) {
-        return (EnemyFollow) this.list
+    public GameObject checkCollisionKillEnemyFollow(GameObject bulletPlayer) {
+        return  this.list
                 .stream()
                 .filter(gameObject -> gameObject.isAlive)
                 .filter(gameObject -> gameObject instanceof EnemyFollow)
                 .filter(gameObject -> {
                     BoxCollider other = ((EnemyFollow) gameObject).boxCollider;
-                    return bulletPlayer.boxCollider.checkCollision(other);
+                    return ((BulletPlayer)bulletPlayer).boxCollider.checkCollision(other);
+                })
+                .findFirst()
+                .orElse(null);
+    }
+    public GameObject checkCollisionKillEnemy(GameObject bulletPlayer) {
+        return  this.list
+                .stream()
+                .filter(gameObject -> gameObject.isAlive)
+                .filter(gameObject -> gameObject instanceof Enemies)
+                .filter(gameObject -> {
+                    BoxCollider other = ((Enemies) gameObject).boxCollider;
+                    return ((BulletPlayer)bulletPlayer).boxCollider.checkCollision(other);
+                })
+                .findFirst()
+                .orElse(null);
+    }
+
+    public GameObject checkCollisionKillStar(GameObject bulletPlayer) {
+        return  this.list
+                .stream()
+                .filter(gameObject -> gameObject.isAlive)
+                .filter(gameObject -> gameObject instanceof Star)
+                .filter(gameObject -> {
+                    BoxCollider other = ((Star) gameObject).boxCollider;
+                    return ((BulletPlayer)bulletPlayer).boxCollider.checkCollision(other);
                 })
                 .findFirst()
                 .orElse(null);

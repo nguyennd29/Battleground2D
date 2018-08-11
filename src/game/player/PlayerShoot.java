@@ -3,25 +3,33 @@ package game.player;
 import base.Attribute;
 import base.FrameCounter;
 import base.GameObjectManager;
+import input.MouseInput;
 
 public class PlayerShoot implements Attribute<Player> {
 
-
-    private FrameCounter frameCounter;
+    long lastTime;
 
     public PlayerShoot() {
-        this.frameCounter = new FrameCounter(9);
+        this.lastTime = 0;
     }
+
 
     @Override
     public void run(Player gameObject) {
-        if(frameCounter.run()){
-            BulletPlayer bulletPlayer = new BulletPlayer();
-            bulletPlayer.position.set(gameObject.position);
-            bulletPlayer.velocity.set(gameObject.velocity.copy()).multiply(2.5f);
-            GameObjectManager.instance.add(bulletPlayer);
-            this.frameCounter.reset();
-        }
+
+
+            if (MouseInput.instance.clicked) {
+                long currentTime = System.nanoTime();
+                if (currentTime - this.lastTime >= 100_000_000) {
+                    BulletPlayer bulletPlayer = new BulletPlayer();
+                    bulletPlayer.position.set(gameObject.position);
+
+                    GameObjectManager.instance.add(bulletPlayer);
+
+                    bulletPlayer.velocity.set(MouseInput.instance.vector2D.subtract(gameObject.position).subtract(0,25).normalized().multiply(16.0f));
+                    this.lastTime = currentTime;
+                }
+            }
 
     }
 }
