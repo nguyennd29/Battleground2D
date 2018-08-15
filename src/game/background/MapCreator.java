@@ -26,6 +26,8 @@ public class MapCreator {
             GameObjectManager.instance.add(new Wall(1024-25, i));
             i += 50;
         }
+        GameObjectManager.instance.add(new Wall(500, 500));
+
     }
 }
 
