@@ -32,6 +32,7 @@ public class GameWindow extends JFrame {
         this.addKeyListener(KeyboardInput.instance);
         this.windowEvent();
         this.addMouseListener(MouseInput.instance);
+        this.addMouseMotionListener(MouseInput.instance);
 
     }
 

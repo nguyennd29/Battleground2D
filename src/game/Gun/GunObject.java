@@ -27,6 +27,7 @@ public class GunObject{
         if (MouseInput.instance.clicked) {
             long currentTime = System.nanoTime();
             if (currentTime - this.lastTime >=1_000_000_000/firingRate) {
+
                 Random random = new Random();
                 int recoilY=25+recoilRate/2 - random.nextInt(recoilRate);
                 BulletPlayer bulletPlayer = new BulletPlayer();
@@ -36,6 +37,7 @@ public class GunObject{
 
                 bulletPlayer.velocity.set(MouseInput.instance.vector2D.subtract(gameObject.position).subtract(0,recoilY).normalized().multiply(bulletSpeed));
                 this.lastTime = currentTime;
+
             }
         }
     }
