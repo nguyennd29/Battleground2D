@@ -40,7 +40,7 @@ public class GameCanvas extends JPanel {
         mapCreator.run();
        //GameObjectManager.instance.add(new StarCreate());
         GameObjectManager.instance.add(new EnemyFollowCreate());
-        GameObjectManager.instance.add(new EnemyCreate());
+        //GameObjectManager.instance.add(new EnemyCreate());
 
         this.setupPlayer();
 
