@@ -20,12 +20,9 @@ public class EnemyFollowCreate extends GameObject {
     public void run() {
 
         if (frameCounter.run()) {
-            EnemyFollow enemyFollow = new EnemyFollow();
-
+            EnemyFollow enemyFollow = GameObjectManager.instance.recycle(EnemyFollow.class);
             enemyFollow.position.set(this.rd.nextInt(1024), this.rd.nextInt(600));
-
             enemyFollow.velocity.set(this.rd.nextInt(5) + 1, this.rd.nextInt(2) + 1);
-            GameObjectManager.instance.add(enemyFollow);
             frameCounter.reset();
 
 

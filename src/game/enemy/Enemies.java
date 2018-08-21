@@ -3,10 +3,11 @@ package game.enemy;
 import base.GameObject;
 import base.Vector2D;
 import physic.BoxCollider;
+import physic.PhysicBody;
 import renderer.ImageRenderer;
 
 
-public class Enemies extends GameObject {
+public class Enemies extends GameObject implements PhysicBody {
 
 //    public int width;
 //    public int height;
@@ -28,6 +29,16 @@ public class Enemies extends GameObject {
         this.position.addUp(velocity);
         this.boxCollider.position.set(this.position.x-15,this.position.y-15);
 
+    }
+
+    @Override
+    public BoxCollider getBoxCollider() {
+        return this.boxCollider;
+    }
+
+    @Override
+    public void getHit(GameObject gameObject) {
+        this.isAlive = false;
     }
 }
 

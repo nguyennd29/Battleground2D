@@ -4,9 +4,10 @@ import base.GameObject;
 import base.GameObjectManager;
 import base.Vector2D;
 import physic.BoxCollider;
+import physic.PhysicBody;
 import renderer.ImageRenderer;
 
-public class EnemyFollow extends GameObject {
+public class EnemyFollow extends GameObject implements PhysicBody {
 
     public Vector2D velocity;
     public BoxCollider boxCollider;
@@ -28,5 +29,15 @@ public class EnemyFollow extends GameObject {
     public void update(){
 
       this.velocity.set(GameObjectManager.instance.findPlayer().position.subtract(this.position).normalized().multiply(1.4f));
+    }
+
+    @Override
+    public BoxCollider getBoxCollider() {
+        return this.boxCollider;
+    }
+
+    @Override
+    public void getHit(GameObject gameObject) {
+            this.isAlive = false;
     }
 }
