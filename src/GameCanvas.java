@@ -1,6 +1,7 @@
 import base.GameObjectManager;
 import game.background.Background;
 import game.background.MapCreator;
+import game.boss.CreateBoss;
 import game.enemy.EnemyCreate;
 import game.enemyfollow.EnemyFollowCreate;
 import game.player.Player;
@@ -41,6 +42,7 @@ public class GameCanvas extends JPanel {
        //GameObjectManager.instance.add(new StarCreate());
         GameObjectManager.instance.add(new EnemyFollowCreate());
         //GameObjectManager.instance.add(new EnemyCreate());
+        GameObjectManager.instance.add(new CreateBoss());
 
         this.setupPlayer();
 

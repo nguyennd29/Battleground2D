@@ -1,5 +1,6 @@
 package base;
 
+import action.Action;
 import renderer.Renderer;
 
 import java.awt.*;
@@ -15,10 +16,13 @@ public class GameObject {
 
     public List<Attribute> attributes;
 
+    public List<Action> actions;
+
     public GameObject() {
         this.position = new Vector2D();
         this.attributes=new ArrayList<>();
         this.isAlive=true;
+        this.actions = new ArrayList<>();
     }
     public void render(Graphics graphics){
         if(this.renderer != null)
@@ -26,5 +30,11 @@ public class GameObject {
     }
     public void run(){
         this.attributes.forEach(attribute -> attribute.run(this));
+
+        this.actions.removeIf(action -> action.run(this));
+    }
+
+    public void addAction(Action action) {
+        this.actions.add(action);
     }
 }

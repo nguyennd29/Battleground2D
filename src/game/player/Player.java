@@ -34,6 +34,7 @@ public class Player extends GameObject implements PhysicBody {
         this.ak47=new AK47();
         this.kar98=new Kar98();
         this.attributes.add(new PlayerMove());
+        this.attributes.add(new PlayerShoot());
         this.runHitObject = new RunHitObject(
                 EnemyFollow.class,
                 Enemies.class, BulletEnemy.class);
