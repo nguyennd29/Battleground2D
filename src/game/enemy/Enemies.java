@@ -39,6 +39,7 @@ public class Enemies extends GameObject implements PhysicBody {
     @Override
     public void getHit(GameObject gameObject) {
         this.isAlive = false;
+
     }
 }
 

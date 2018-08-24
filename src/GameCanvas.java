@@ -1,4 +1,7 @@
 import base.GameObjectManager;
+import game.Gun.CreateGunAK47;
+import game.Gun.CreateGunKar98;
+import game.Gun.GunAK47;
 import game.background.Background;
 import game.background.MapCreator;
 import game.boss.CreateBoss;
@@ -41,7 +44,9 @@ public class GameCanvas extends JPanel {
         mapCreator.run();
        //GameObjectManager.instance.add(new StarCreate());
         GameObjectManager.instance.add(new EnemyFollowCreate());
-        //GameObjectManager.instance.add(new EnemyCreate());
+        GameObjectManager.instance.add(new EnemyCreate());
+        GameObjectManager.instance.add(new CreateGunKar98());
+        GameObjectManager.instance.add(new CreateGunAK47());
         GameObjectManager.instance.add(new CreateBoss());
 
         this.setupPlayer();
