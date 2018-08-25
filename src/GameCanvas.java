@@ -1,6 +1,9 @@
 import base.GameObjectManager;
+import base.Settings;
+import base.Vector2D;
+import game.ViewPort;
 import game.background.Background;
-import game.background.MapCreator;
+
 import game.boss.CreateBoss;
 import game.enemy.EnemyCreate;
 import game.enemyfollow.EnemyFollowCreate;
@@ -16,29 +19,31 @@ public class GameCanvas extends JPanel {
 
     private BufferedImage backBuffered;
     public Player player;
-    public MapCreator mapCreator = new MapCreator();
-    private Graphics graphics;
+    private Graphics2D g2d;
+    private ViewPort viewPort;
+    Vector2D initPosition= new Vector2D(600,1000);
 
     public GameCanvas() {
-        this.setSize(1024, 600);
+        this.setSize(Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT);
 
         setupBackBuffered();
+        this.setBackground(Color.black);
 
         setupCharacter();
 
-
+        this.viewPort=new ViewPort();
+        this.viewPort.getFollowOffset().set(-Settings.GAMEPLAY_WIDTH/2,-Settings.GAMEPLAY_HEIGHT/2);
         this.setVisible(true);
     }
 
     private void setupBackBuffered() {
 
-        this.backBuffered = new BufferedImage(1024, 600, BufferedImage.TYPE_INT_ARGB);
-        this.graphics = this.backBuffered.getGraphics();
+        this.backBuffered = new BufferedImage(Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT, BufferedImage.TYPE_INT_ARGB);
+        this.g2d =(Graphics2D) this.backBuffered.getGraphics();
     }
 
     private void setupCharacter() {
-        GameObjectManager.instance.add(new Background());
-        mapCreator.run();
+//        GameObjectManager.instance.add(new Background());
        //GameObjectManager.instance.add(new StarCreate());
         GameObjectManager.instance.add(new EnemyFollowCreate());
         //GameObjectManager.instance.add(new EnemyCreate());
@@ -52,19 +57,24 @@ public class GameCanvas extends JPanel {
     private void setupPlayer() {
 
         this.player = new Player();
-        this.player.position.set(200, 300);
-        this.player.velocity.set(0,2.5f);
+        this.player.position.set(initPosition);
+
         GameObjectManager.instance.add(player);
 
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        g.drawImage(this.backBuffered, 0, 0, null);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setBackground(Color.black);
+        g2d.drawImage(this.backBuffered, 0, 0, null);
     }
 
     public void renderAll() {
-        GameObjectManager.instance.renderAll(this.graphics);
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
+
+        GameObjectManager.instance.renderAll(this.g2d,viewPort);
         this.repaint();
 
     }
@@ -72,6 +82,7 @@ public class GameCanvas extends JPanel {
     public void runAll() {
 
         GameObjectManager.instance.runAll();
+        viewPort.follow(player);
         }
     }
 

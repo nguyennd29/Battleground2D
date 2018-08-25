@@ -19,8 +19,8 @@ public class BulletEnemy extends GameObject implements PhysicBody {
     }
 
     @Override
-    public void run() {
-        super.run();
+    public void run(Vector2D parentPosition) {
+        super.run(parentPosition);
         this.position.addUp(this.velocity);
         this.boxCollider.position.set(this.position.x-2.5f,this.position.y-2.5f);
 
@@ -36,5 +36,10 @@ public class BulletEnemy extends GameObject implements PhysicBody {
     @Override
     public void getHit(GameObject gameObject) {
         this.isAlive = false;
+    }
+
+    @Override
+    public boolean isActive() {
+        return isAlive;
     }
 }

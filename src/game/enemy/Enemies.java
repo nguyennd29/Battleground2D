@@ -19,12 +19,11 @@ public class Enemies extends GameObject implements PhysicBody {
         this.velocity = new Vector2D();
         renderer = new ImageRenderer("resources/images/powerup_shield.png", 30, 30);
         boxCollider=new BoxCollider(30,30);
-        this.attributes.add(new EnemyShoot());
     }
 
     @Override
-    public void run() {
-        super.run();
+    public void run(Vector2D parentPosition) {
+        super.run(parentPosition);
         this.velocity.set(-1, 0);
         this.position.addUp(velocity);
         this.boxCollider.position.set(this.position.x-15,this.position.y-15);
@@ -39,6 +38,11 @@ public class Enemies extends GameObject implements PhysicBody {
     @Override
     public void getHit(GameObject gameObject) {
         this.isAlive = false;
+    }
+
+    @Override
+    public boolean isActive() {
+        return isAlive;
     }
 }
 

@@ -18,7 +18,8 @@ public class MouseInput implements MouseListener, MouseMotionListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        this.clicked = true;
+        vector2D = new Vector2D(e.getX(), e.getY());
 
     }
 

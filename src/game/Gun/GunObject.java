@@ -32,10 +32,8 @@ public class GunObject{
                 int recoilY=25+recoilRate/2 - random.nextInt(recoilRate);
                 BulletPlayer bulletPlayer = new BulletPlayer();
                 bulletPlayer.position.set(gameObject.position);
-
-                GameObjectManager.instance.add(bulletPlayer);
-
                 bulletPlayer.velocity.set(MouseInput.instance.vector2D.subtract(gameObject.position).subtract(0,recoilY).normalized().multiply(bulletSpeed));
+                GameObjectManager.instance.add(bulletPlayer);
                 this.lastTime = currentTime;
 
             }

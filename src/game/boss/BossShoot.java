@@ -9,14 +9,14 @@ public class BossShoot implements Attribute<Boss> {
     private FrameCounter frameCounter;
 
     public BossShoot() {
-        this.frameCounter = new FrameCounter(500);
+        this.frameCounter = new FrameCounter(50);
     }
 
     @Override
     public void run(Boss gameObject) {
 
         if (this.frameCounter.run()) {
-            for (double angle = 0.0; angle < 360.0; angle += 360.0 / 5) {
+            for (double angle = 0.0; angle < 360.0; angle += 360.0 / 10) {
                 BulletBoss  bulletBoss = GameObjectManager.instance.recycle(BulletBoss.class);
                 bulletBoss.position.set(gameObject.position);
                 bulletBoss.velocity.set(

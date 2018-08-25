@@ -1,3 +1,5 @@
+import Tilemap.Map;
+import base.Settings;
 import input.KeyboardInput;
 import input.MouseInput;
 
@@ -11,18 +13,23 @@ public class GameWindow extends JFrame {
     private long lastTime = 0;
 
     public GameWindow() {
-        this.setSize(1024, 600);
+        this.setSize(Settings.GAMEPLAY_WIDTH, Settings.GAMEPLAY_HEIGHT);
 
         this.setupGameCanvas();
 
         this.event();
 
+        addWall();
         this.setVisible(true);
 
 
     }
 
-
+    private void addWall(){
+        Map map = Map.load("resources/mapcreate/testmap.json");
+        System.out.println(map);
+        map.generate();
+    }
     private void setupGameCanvas() {
         this.gameCanvas = new GameCanvas();
         this.add(gameCanvas);

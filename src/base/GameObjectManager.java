@@ -1,6 +1,8 @@
 package base;
 
+import game.ViewPort;
 import game.enemyfollow.EnemyFollow;
+import game.platforms.Platform;
 import game.player.BulletPlayer;
 import game.player.Player;
 import physic.BoxCollider;
@@ -30,16 +32,16 @@ public class GameObjectManager {
         this.list
                 .stream()
                 .filter(gameObject -> gameObject.isAlive)
-                .forEach(gameObject -> gameObject.run());
+                .forEach(gameObject -> gameObject.run(new Vector2D()));
         this.list.addAll(this.tempList);
         this.tempList.clear();
     }
 
-    public void renderAll(Graphics graphics) {
+    public void renderAll(Graphics2D g2d, ViewPort viewPort) {
         this.list
                 .stream()
                 .filter(gameObject -> gameObject.isAlive)
-                .forEach(gameObject -> gameObject.render(graphics));
+                .forEach(gameObject -> gameObject.render(g2d,viewPort));
     }
 
     public Player findPlayer() {
@@ -49,6 +51,7 @@ public class GameObjectManager {
                 .findFirst()
                 .orElse(null);
     }
+
 
     public <T extends GameObject & PhysicBody> T checkCollision(BoxCollider boxCollider, Class<T> cls) {
         return (T) this.list
