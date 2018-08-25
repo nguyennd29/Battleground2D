@@ -1,6 +1,4 @@
 package game.Gun;
-
-import base.FrameCounter;
 import base.GameObject;
 import base.GameObjectManager;
 import game.player.BulletPlayer;
