@@ -12,7 +12,7 @@ public class Background extends GameObject {
         renderer = new BackgroundRenderer(Color.BLACK, 1024, 600);
     }
 
-    public void run(Vector2D parentPosition) {
+    public void run() {
         super.run();
     }
 }

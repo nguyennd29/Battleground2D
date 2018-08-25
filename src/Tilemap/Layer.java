@@ -2,6 +2,7 @@ package Tilemap;
 
 import base.GameObject;
 import base.GameObjectManager;
+import game.background.BackgroundTile;
 import game.platforms.Platform;
 
 import java.util.List;
@@ -21,6 +22,12 @@ public class Layer {
                    platform.position.set(50*titleX-25,titleY*50);
 
                    GameObjectManager.instance.add(platform);
+               }
+               if(mapData==5) {
+                   BackgroundTile backgroundTile=BackgroundTile.create(mapData);
+                   backgroundTile.position.set(50*titleX,titleY*50);
+
+                   GameObjectManager.instance.add(backgroundTile);
                }
 
                else if(mapData!=0){

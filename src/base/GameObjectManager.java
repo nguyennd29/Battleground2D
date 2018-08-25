@@ -1,6 +1,7 @@
 package base;
 
 import game.ViewPort;
+import game.background.BackgroundTile;
 import game.enemyfollow.EnemyFollow;
 import game.platforms.Platform;
 import game.player.BulletPlayer;
@@ -37,11 +38,19 @@ public class GameObjectManager {
         this.tempList.clear();
     }
 
+    public void renderBackground(Graphics2D g2d, ViewPort viewPort) {
+        this.list
+                .stream()
+                .filter(gameObject -> gameObject instanceof BackgroundTile)
+                .forEach(gameObject -> gameObject.render(g2d, viewPort));
+    }
+
     public void renderAll(Graphics2D g2d, ViewPort viewPort) {
         this.list
                 .stream()
                 .filter(gameObject -> gameObject.isAlive)
-                .forEach(gameObject -> gameObject.render(g2d,viewPort));
+                .filter(gameObject -> !(gameObject instanceof BackgroundTile))
+                .forEach(gameObject -> gameObject.render(g2d, viewPort));
     }
 
     public Player findPlayer() {

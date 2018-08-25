@@ -7,9 +7,7 @@ import physic.BoxCollider;
 import physic.PhysicBody;
 import renderer.ImageRenderer;
 
-/**
- * Created by huynq on 8/3/17.
- */
+
 public class Platform extends GameObject implements PhysicBody {
     private BoxCollider boxCollider;
     private int width;

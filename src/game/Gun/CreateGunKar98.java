@@ -28,7 +28,7 @@ public class CreateGunKar98 extends GameObject {
                                     @Override
                                     public boolean run(GameObject owner) {
                                         GunKar98 gunKar98 = GameObjectManager.instance.recycle(GunKar98.class);
-                                        gunKar98.position.set(500,1000);
+                                        gunKar98.position.set(700,2100);
                                         return true;
                                     }
                                 }

@@ -23,7 +23,7 @@ public class GunObject{
     }
 
     public void shoot(GameObject  gameObject){
-        if(Player.instance.Mana> manaCost)
+        if(Player.instance.Mana >= manaCost)
         if (MouseInput.instance.clicked) {
             long currentTime = System.nanoTime();
             if (currentTime - this.lastTime >=1_000_000_000/firingRate) {

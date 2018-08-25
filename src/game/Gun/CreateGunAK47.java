@@ -28,7 +28,7 @@ public class CreateGunAK47 extends GameObject {
                                     @Override
                                     public boolean run(GameObject owner) {
                                         GunAK47 GunAK47 = GameObjectManager.instance.recycle(GunAK47.class);
-                                        GunAK47.position.set(650, 1000);
+                                        GunAK47.position.set(700, 2100);
                                         return true;
                                     }
                                 }

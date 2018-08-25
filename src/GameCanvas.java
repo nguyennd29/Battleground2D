@@ -4,10 +4,9 @@ import base.Vector2D;
 import game.Gun.CreateGunAK47;
 import game.Gun.CreateGunKar98;
 import game.ViewPort;
-import game.background.Background;
+
 
 import game.boss.CreateBoss;
-import game.enemy.EnemyCreate;
 import game.enemyfollow.EnemyFollowCreate;
 import game.player.Player;
 
@@ -75,7 +74,7 @@ public class GameCanvas extends JPanel {
     public void renderAll() {
         g2d.setColor(Color.BLACK);
         g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
-
+        GameObjectManager.instance.renderBackground(this.g2d,ViewPort.instance);
         GameObjectManager.instance.renderAll(this.g2d,ViewPort.instance);
         this.repaint();
 

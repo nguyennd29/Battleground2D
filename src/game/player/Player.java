@@ -44,7 +44,7 @@ public class Player extends GameObject implements PhysicBody {
         width=50;
         height=50;
         this.boxCollider = new BoxCollider(width, height);
-        this.renderer = new ImageRenderer("resources/images/0x72_16x16DungeonTileset.v4.jpg", width, height);
+        this.renderer = new ImageRenderer("resources/PlatformImage/PlayerImage.png", width, height);
         this.ak47 = new AK47();
         this.kar98 = new Kar98();
         this.runHitObject = new RunHitObject(
