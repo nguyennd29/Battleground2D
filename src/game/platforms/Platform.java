@@ -105,8 +105,8 @@ public class Platform extends GameObject implements PhysicBody {
         return true;
     }
 
-    public void run(Vector2D parentPosition){
-        super.run(parentPosition);
+    public void run(){
+        super.run();
         this.boxCollider.position.set(this.position.x - width/2, this.position.y - height/2);
     }
 }

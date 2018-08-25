@@ -2,6 +2,7 @@ package input;
 
 import base.GameObjectManager;
 import base.Vector2D;
+import game.ViewPort;
 import game.player.BulletPlayer;
 
 import java.awt.event.*;
@@ -19,7 +20,7 @@ public class MouseInput implements MouseListener, MouseMotionListener {
     @Override
     public void mousePressed(MouseEvent e) {
         this.clicked = true;
-        vector2D = new Vector2D(e.getX(), e.getY());
+        vector2D = new Vector2D(e.getX()+ ViewPort.instance.position.x, e.getY()+ViewPort.instance.position.y);
 
     }
 
@@ -45,7 +46,7 @@ public class MouseInput implements MouseListener, MouseMotionListener {
     public void mouseDragged(MouseEvent e) {
 
         this.clicked = true;
-        vector2D = new Vector2D(e.getX(), e.getY());
+        vector2D = new Vector2D(e.getX()+ ViewPort.instance.position.x, e.getY()+ViewPort.instance.position.y);
     }
 
     @Override

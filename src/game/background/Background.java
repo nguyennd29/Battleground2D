@@ -13,6 +13,6 @@ public class Background extends GameObject {
     }
 
     public void run(Vector2D parentPosition) {
-        super.run(parentPosition);
+        super.run();
     }
 }

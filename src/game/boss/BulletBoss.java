@@ -19,8 +19,8 @@ public class BulletBoss extends GameObject implements PhysicBody {
     }
 
     @Override
-    public void run(Vector2D parentPosition) {
-        super.run(parentPosition);
+    public void run() {
+        super.run();
         this.position.addUp(this.velocity);
 
         this.boxCollider.position.set(this.position.x - 5, this.position.y - 5);

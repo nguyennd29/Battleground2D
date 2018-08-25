@@ -40,4 +40,9 @@ public class GunKar98 extends GameObject implements PhysicBody {
     public void getHit(GameObject gameObject) {
         this.isAlive= false;
     }
+
+    @Override
+    public boolean isActive() {
+        return isAlive;
+    }
 }

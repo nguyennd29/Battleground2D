@@ -9,10 +9,11 @@ import java.awt.geom.AffineTransform;
 
 public class ViewPort {
 
-    private Vector2D position;
-    private Vector2D followOffset;
+    static public ViewPort instance = new ViewPort();
+    public Vector2D position;
+    public Vector2D followOffset;
 
-    public ViewPort() {
+    private ViewPort() {
         position = new Vector2D();
         followOffset = new Vector2D();
     }

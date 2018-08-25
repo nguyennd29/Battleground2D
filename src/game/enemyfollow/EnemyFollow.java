@@ -23,8 +23,8 @@ public class EnemyFollow extends GameObject implements PhysicBody {
     }
 
     @Override
-    public void run(Vector2D parentPosition) {
-        super.run(parentPosition);
+    public void run() {
+        super.run();
         update();
         this.position.addUp(this.velocity);
         this.boxCollider.position.set(this.position.x - 25, this.position.y - 25);

@@ -20,7 +20,7 @@ public class GameCanvas extends JPanel {
     private BufferedImage backBuffered;
     public Player player;
     private Graphics2D g2d;
-    private ViewPort viewPort;
+//    private ViewPort viewPort;
     Vector2D initPosition= new Vector2D(600,1000);
 
     public GameCanvas() {
@@ -31,8 +31,8 @@ public class GameCanvas extends JPanel {
 
         setupCharacter();
 
-        this.viewPort=new ViewPort();
-        this.viewPort.getFollowOffset().set(-Settings.GAMEPLAY_WIDTH/2,-Settings.GAMEPLAY_HEIGHT/2);
+//        this.viewPort=new ViewPort();
+        ViewPort.instance.getFollowOffset().set(-Settings.GAMEPLAY_WIDTH/2,-Settings.GAMEPLAY_HEIGHT/2);
         this.setVisible(true);
     }
 
@@ -74,7 +74,7 @@ public class GameCanvas extends JPanel {
         g2d.setColor(Color.BLACK);
         g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
 
-        GameObjectManager.instance.renderAll(this.g2d,viewPort);
+        GameObjectManager.instance.renderAll(this.g2d,ViewPort.instance);
         this.repaint();
 
     }
@@ -82,7 +82,7 @@ public class GameCanvas extends JPanel {
     public void runAll() {
 
         GameObjectManager.instance.runAll();
-        viewPort.follow(player);
+        ViewPort.instance.follow(player);
         }
     }
 

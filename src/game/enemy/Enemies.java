@@ -22,8 +22,8 @@ public class Enemies extends GameObject implements PhysicBody {
     }
 
     @Override
-    public void run(Vector2D parentPosition) {
-        super.run(parentPosition);
+    public void run() {
+        super.run();
         this.velocity.set(-1, 0);
         this.position.addUp(velocity);
         this.boxCollider.position.set(this.position.x-15,this.position.y-15);

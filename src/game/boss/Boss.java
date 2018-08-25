@@ -28,8 +28,8 @@ public class Boss extends GameObject implements PhysicBody {
 
 
     @Override
-    public void run(Vector2D parentPosition) {
-        super.run(parentPosition);
+    public void run() {
+        super.run();
         this.position.addUp(this.velocity);
 
         this.boxCollider.position.set(this.position.x - 30, this.position.y - 30);

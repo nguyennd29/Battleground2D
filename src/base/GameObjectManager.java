@@ -32,7 +32,7 @@ public class GameObjectManager {
         this.list
                 .stream()
                 .filter(gameObject -> gameObject.isAlive)
-                .forEach(gameObject -> gameObject.run(new Vector2D()));
+                .forEach(gameObject -> gameObject.run());
         this.list.addAll(this.tempList);
         this.tempList.clear();
     }

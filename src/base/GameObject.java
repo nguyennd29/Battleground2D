@@ -38,8 +38,8 @@ public class GameObject {
         }
     }
 
-    public void run(Vector2D parentPosition) {
-        this.screenPosition = parentPosition.add(position);
+    public void run() {
+        this.screenPosition.set(position);
 
         this.attributes.forEach(attribute -> attribute.run(this));
 

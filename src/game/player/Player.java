@@ -44,8 +44,8 @@ public class Player extends GameObject implements PhysicBody {
 
     }
 
-    public void run(Vector2D parentPosition) {
-        super.run(parentPosition);
+    public void run() {
+        super.run();
         this.ak47.shoot(this);
 //        this.kar98.shoot(this);
 
