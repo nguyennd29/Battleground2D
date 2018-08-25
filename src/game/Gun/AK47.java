@@ -6,5 +6,6 @@ public class AK47 extends GunObject {
         this.firingRate = 10;
         this.recoilRate = 40;
         this.bulletSpeed = 17;
+        this.manaCost = 3;
     }
 }

@@ -29,7 +29,9 @@ public class GunAK47 extends GameObject implements PhysicBody {
     }
 
     public void isHaveBulletAK() {
+
         GameObjectManager.instance.findPlayer().ak47.shoot(GameObjectManager.instance.findPlayer());
+
     }
     @Override
     public BoxCollider getBoxCollider() {

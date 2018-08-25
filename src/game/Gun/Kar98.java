@@ -6,5 +6,6 @@ public class Kar98 extends GunObject {
         this.firingRate = 1;
         this.recoilRate = 1;
         this.bulletSpeed = 50;
+        this.manaCost =50;
     }
 }
