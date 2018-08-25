@@ -21,7 +21,7 @@ public class GameCanvas extends JPanel {
     public Player player;
     private Graphics2D g2d;
 //    private ViewPort viewPort;
-    Vector2D initPosition= new Vector2D(600,1000);
+    Vector2D initPosition= new Vector2D(600,2000);
 
     public GameCanvas() {
         this.setSize(Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT);

@@ -16,9 +16,16 @@ public class Layer {
        for(int  titleY =0;titleY<height;titleY++) {
            for (int titleX = 0; titleX < width; titleX++) {
                int mapData = data.get(titleY * width + titleX);
-               if(mapData!=0){
+               if(mapData==4){
                    Platform platform=Platform.create(mapData);
-                   platform.position.set(80*titleX,titleY*80);
+                   platform.position.set(50*titleX-25,titleY*50);
+
+                   GameObjectManager.instance.add(platform);
+               }
+
+               else if(mapData!=0){
+                   Platform platform=Platform.create(mapData);
+                   platform.position.set(50*titleX,titleY*50);
 
                    GameObjectManager.instance.add(platform);
                }

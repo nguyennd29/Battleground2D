@@ -26,7 +26,7 @@ public class GameWindow extends JFrame {
     }
 
     private void addWall(){
-        Map map = Map.load("resources/mapcreate/testmap.json");
+        Map map = Map.load("resources/mapcreate/NewVersionMap.json");
         System.out.println(map);
         map.generate();
     }
