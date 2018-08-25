@@ -1,8 +1,10 @@
 import base.GameObjectManager;
 import base.Settings;
 import base.Vector2D;
+import game.Gun.CreateDesertEagle;
 import game.Gun.CreateGunAK47;
 import game.Gun.CreateGunKar98;
+import game.Gun.CreateGunShotGun;
 import game.ViewPort;
 
 
@@ -51,7 +53,8 @@ public class GameCanvas extends JPanel {
         GameObjectManager.instance.add(new CreateBoss());
         GameObjectManager.instance.add(new CreateGunAK47());
         GameObjectManager.instance.add(new CreateGunKar98());
-
+        GameObjectManager.instance.add(new CreateDesertEagle());
+        GameObjectManager.instance.add(new CreateGunShotGun());
         this.setupPlayer();
 
     }

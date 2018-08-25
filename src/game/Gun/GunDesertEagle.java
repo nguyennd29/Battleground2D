@@ -9,13 +9,13 @@ import physic.PhysicBody;
 import physic.RunHitObject;
 import renderer.ImageRenderer;
 
-public class GunAK47 extends GameObject implements PhysicBody {
+public class GunDesertEagle extends GameObject implements PhysicBody {
     public RunHitObject runHitObject;
     public BoxCollider boxCollider;
 
 
-    public GunAK47 (){
-        this.renderer = new ImageRenderer("resources/images/1.png", 50, 50);
+    public  GunDesertEagle (){
+        this.renderer = new ImageRenderer("resources/images/3.png", 50, 50);
         this.boxCollider = new BoxCollider(50, 50);
         this.runHitObject = new RunHitObject(Player.class);
     }
@@ -28,10 +28,8 @@ public class GunAK47 extends GameObject implements PhysicBody {
 
     }
 
-    public void isHaveBulletAK() {
-        GameObjectManager.instance.findPlayer().ak47.shoot(GameObjectManager.instance.findPlayer())
-        ;
-
+    public void isHaveBulletDesertEagle() {
+        GameObjectManager.instance.findPlayer().desertEagle.shoot(GameObjectManager.instance.findPlayer());
     }
     @Override
     public BoxCollider getBoxCollider() {

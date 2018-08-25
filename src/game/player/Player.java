@@ -3,10 +3,7 @@ package game.player;
 import base.GameObject;
 import base.GameObjectManager;
 import base.Vector2D;
-import game.Gun.AK47;
-import game.Gun.GunAK47;
-import game.Gun.GunKar98;
-import game.Gun.Kar98;
+import game.Gun.*;
 import game.boss.BossShoot;
 import game.boss.BulletBoss;
 import game.enemy.BulletEnemy;
@@ -28,34 +25,43 @@ public class Player extends GameObject implements PhysicBody {
     public RunHitObject runHitPlatform;
     public AK47 ak47;
     public Kar98 kar98;
+    public DesertEagle desertEagle;
+    public ShotGun shotGun;
+    public GunDesertEagle gunDesertEagle;
     public GunAK47 gunAK47;
     public GunKar98 gunKar98;
+    public GunShotGun gunShotGun;
     public double angle;
     public float SPEED = 5;
     private int width;
     private int height;
     public boolean haveBulletAK = false;
     public boolean haveBulletKar98 = false;
-    public int Mana =0;
+    public boolean haveBulletShotGun = false;
+    public boolean haveBulletDesertEagle = true;
+    public int Mana =10;
+
+
 
    private Player() {
         this.isAlive = true;
         this.velocity = new Vector2D();
-        width=50;
-        height=50;
+        width=100;
+        height=100;
         this.boxCollider = new BoxCollider(width, height);
-        this.renderer = new ImageRenderer("resources/PlatformImage/PlayerImage.png", width, height);
+        this.renderer = new ImageRenderer("resources/images/3.png", width, height);
         this.ak47 = new AK47();
         this.kar98 = new Kar98();
+        this.shotGun = new ShotGun();
+        this.desertEagle = new DesertEagle();
         this.runHitObject = new RunHitObject(
                 EnemyFollow.class,
                 Enemies.class, BulletEnemy.class, BulletBoss.class);
         this.runHitPlatform = new RunHitObject(Platform.class);
         this.gunAK47 = new GunAK47();
         this.gunKar98 = new GunKar98();
-
-
-
+        this.gunDesertEagle = new GunDesertEagle();
+        this.gunShotGun = new GunShotGun();
     }
 
     public void run() {
@@ -66,11 +72,16 @@ public class Player extends GameObject implements PhysicBody {
 
         this.boxCollider.position.set(this.position.x - this.width/2, this.position.y - this.height/2);
         this.runHitObject.run(this);
-
+        if(this.haveBulletDesertEagle == true){
+            this.gunDesertEagle.isHaveBulletDesertEagle();
+        }
         this.velocity.set(0, 0);
         if(Mana>=3) {
             if (this.haveBulletAK == true) {
                 this.gunAK47.isHaveBulletAK();
+            }
+            if (this.haveBulletShotGun == true) {
+                this.gunShotGun.isHaveBulletShotGun();
             }
             if (this.haveBulletKar98 == true) {
                 this.gunKar98.isHaveBulletKar98();
@@ -147,16 +158,35 @@ public class Player extends GameObject implements PhysicBody {
     public void getHit(GameObject gameObject) {
         if (gameObject instanceof GunAK47)
         {
-            this.Mana = 200;
+            this.Mana += 210;
             this.isAlive = true;
             this.haveBulletAK = true;
             this.haveBulletKar98= false;
+            this.haveBulletDesertEagle = false;
+            this.haveBulletShotGun = false;
         }
         else if (gameObject instanceof GunKar98) {
-            this.Mana = 200;
+            this.Mana += 100;
             this.isAlive = true;
             this.haveBulletAK= false;
             this.haveBulletKar98 = true;
+            this.haveBulletDesertEagle = false;
+            this.haveBulletShotGun = false;
+        }
+        else if (gameObject instanceof  GunDesertEagle){
+            this.isAlive = true;
+            this.haveBulletDesertEagle = true;
+            this.haveBulletAK= false;
+            this.haveBulletKar98= false;
+            this.haveBulletShotGun = false;
+        }
+        else if (gameObject instanceof GunShotGun) {
+            this.Mana += 200;
+            this.isAlive = true;
+            this.haveBulletAK= false;
+            this.haveBulletKar98 = false;
+            this.haveBulletDesertEagle = false;
+            this.haveBulletShotGun = true;
         }
         else{
             this.isAlive = false;
