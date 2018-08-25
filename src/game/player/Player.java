@@ -49,7 +49,7 @@ public class Player extends GameObject implements PhysicBody {
         width=100;
         height=100;
         this.boxCollider = new BoxCollider(width, height);
-        this.renderer = new ImageRenderer("resources/images/3.png", width, height);
+        this.renderer = new ImageRenderer("resources/PlatformImage/PlayerImage.png", width, height);
         this.ak47 = new AK47();
         this.kar98 = new Kar98();
         this.shotGun = new ShotGun();
