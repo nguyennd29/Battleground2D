@@ -28,6 +28,7 @@ public class EnemyFollow extends GameObject implements PhysicBody {
         update();
         this.position.addUp(this.velocity);
         this.boxCollider.position.set(this.position.x - 25, this.position.y - 25);
+
     }
 
 

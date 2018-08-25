@@ -1,8 +1,6 @@
 package game.player;
 
-import base.FrameCounter;
 import base.GameObject;
-import base.GameObjectManager;
 import base.Vector2D;
 import game.boss.Boss;
 import game.enemy.Enemies;

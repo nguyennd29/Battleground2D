@@ -36,6 +36,7 @@ public class BulletEnemy extends GameObject implements PhysicBody {
     @Override
     public void getHit(GameObject gameObject) {
         this.isAlive = false;
+
     }
 
     @Override
