@@ -21,14 +21,14 @@ public class CreateGunKar98 extends GameObject {
     public void configAction() {
         this.addAction(
                 new LimitAction(
-                        3,
+                        10,
                         new SequenceAction(
                                 new WaitAction(150),
                                 new ActionAdapter() {
                                     @Override
                                     public boolean run(GameObject owner) {
                                         GunKar98 gunKar98 = GameObjectManager.instance.recycle(GunKar98.class);
-                                        gunKar98.position.set(rd.nextInt(1024), rd.nextInt(600));
+                                        gunKar98.position.set(500,1000);
                                         return true;
                                     }
                                 }

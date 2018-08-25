@@ -1,6 +1,8 @@
 import base.GameObjectManager;
 import base.Settings;
 import base.Vector2D;
+import game.Gun.CreateGunAK47;
+import game.Gun.CreateGunKar98;
 import game.ViewPort;
 import game.background.Background;
 
@@ -48,6 +50,8 @@ public class GameCanvas extends JPanel {
         GameObjectManager.instance.add(new EnemyFollowCreate());
         //GameObjectManager.instance.add(new EnemyCreate());
         GameObjectManager.instance.add(new CreateBoss());
+        GameObjectManager.instance.add(new CreateGunAK47());
+        GameObjectManager.instance.add(new CreateGunKar98());
 
         this.setupPlayer();
 
@@ -55,11 +59,9 @@ public class GameCanvas extends JPanel {
 
 
     private void setupPlayer() {
+        Player.instance.position.set(initPosition);
 
-        this.player = new Player();
-        this.player.position.set(initPosition);
-
-        GameObjectManager.instance.add(player);
+        GameObjectManager.instance.add(Player.instance);
 
     }
 
@@ -82,7 +84,7 @@ public class GameCanvas extends JPanel {
     public void runAll() {
 
         GameObjectManager.instance.runAll();
-        ViewPort.instance.follow(player);
+        ViewPort.instance.follow(Player.instance);
         }
     }
 

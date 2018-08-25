@@ -4,7 +4,11 @@ import base.GameObject;
 import base.GameObjectManager;
 import base.Vector2D;
 import game.Gun.AK47;
+import game.Gun.GunAK47;
+import game.Gun.GunKar98;
 import game.Gun.Kar98;
+import game.boss.BossShoot;
+import game.boss.BulletBoss;
 import game.enemy.BulletEnemy;
 import game.enemy.Enemies;
 import game.enemyfollow.EnemyFollow;
@@ -17,18 +21,25 @@ import renderer.ImageRenderer;
 
 
 public class Player extends GameObject implements PhysicBody {
+    public static Player instance = new Player();
     public Vector2D velocity;
     public BoxCollider boxCollider;
     public RunHitObject runHitObject;
     public RunHitObject runHitPlatform;
     public AK47 ak47;
     public Kar98 kar98;
+    public GunAK47 gunAK47;
+    public GunKar98 gunKar98;
     public double angle;
     public float SPEED = 5;
     private int width;
     private int height;
+    public boolean haveBulletAK = false;
+    public boolean haveBulletKar98 = false;
+    public int Mana =0;
 
-    public Player() {
+   private Player() {
+        this.isAlive = true;
         this.velocity = new Vector2D();
         width=50;
         height=50;
@@ -38,15 +49,18 @@ public class Player extends GameObject implements PhysicBody {
         this.kar98 = new Kar98();
         this.runHitObject = new RunHitObject(
                 EnemyFollow.class,
-                Enemies.class, BulletEnemy.class);
+                Enemies.class, BulletEnemy.class, BulletBoss.class);
         this.runHitPlatform = new RunHitObject(Platform.class);
+        this.gunAK47 = new GunAK47();
+        this.gunKar98 = new GunKar98();
+
 
 
     }
 
     public void run() {
         super.run();
-        this.ak47.shoot(this);
+//        this.ak47.shoot(this);
 //        this.kar98.shoot(this);
 
 
@@ -54,7 +68,14 @@ public class Player extends GameObject implements PhysicBody {
         this.runHitObject.run(this);
 
         this.velocity.set(0, 0);
-
+        if(Mana>=3) {
+            if (this.haveBulletAK == true) {
+                this.gunAK47.isHaveBulletAK();
+            }
+            if (this.haveBulletKar98 == true) {
+                this.gunKar98.isHaveBulletKar98();
+            }
+        }
         if (KeyboardInput.instance.isUp) {
             this.velocity.y -= SPEED;
         }
@@ -124,8 +145,22 @@ public class Player extends GameObject implements PhysicBody {
 
     @Override
     public void getHit(GameObject gameObject) {
-        this.isAlive = false;
-
+        if (gameObject instanceof GunAK47)
+        {
+            this.Mana = 200;
+            this.isAlive = true;
+            this.haveBulletAK = true;
+            this.haveBulletKar98= false;
+        }
+        else if (gameObject instanceof GunKar98) {
+            this.Mana = 200;
+            this.isAlive = true;
+            this.haveBulletAK= false;
+            this.haveBulletKar98 = true;
+        }
+        else{
+            this.isAlive = false;
+        }
     }
 
     @Override

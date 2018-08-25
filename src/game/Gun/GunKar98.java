@@ -15,7 +15,7 @@ public class GunKar98 extends GameObject implements PhysicBody {
 
 
     public  GunKar98 (){
-        this.renderer = new ImageRenderer("resources/images/12.png", 50, 50);
+        this.renderer = new ImageRenderer("resources/images/2.png", 50, 50);
         this.boxCollider = new BoxCollider(50, 50);
         this.runHitObject = new RunHitObject(Player.class);
     }

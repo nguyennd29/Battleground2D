@@ -21,14 +21,14 @@ public class CreateGunAK47 extends GameObject {
     public void configAction() {
         this.addAction(
                 new LimitAction(
-                        3,
+                        10,
                         new SequenceAction(
                                 new WaitAction(150),
                                 new ActionAdapter() {
                                     @Override
                                     public boolean run(GameObject owner) {
                                         GunAK47 GunAK47 = GameObjectManager.instance.recycle(GunAK47.class);
-                                        GunAK47.position.set(rd.nextInt(1024), rd.nextInt(600));
+                                        GunAK47.position.set(650, 1000);
                                         return true;
                                     }
                                 }
