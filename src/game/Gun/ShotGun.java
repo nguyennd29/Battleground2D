@@ -10,15 +10,12 @@ import input.MouseInput;
 import java.util.Random;
 
 public class ShotGun extends GunObject {
-    public FrameCounter frameCounter;
-
     public ShotGun() {
         this.lastTime = 0;
         this.firingRate = 2;
         this.recoilRate = 20;
         this.bulletSpeed = 30;
         this.manaCost = 10;
-        this.frameCounter = new FrameCounter(30);
     }
 
     @Override

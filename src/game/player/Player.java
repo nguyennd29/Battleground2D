@@ -39,17 +39,17 @@ public class Player extends GameObject implements PhysicBody {
     public boolean haveBulletKar98 = false;
     public boolean haveBulletShotGun = false;
     public boolean haveBulletDesertEagle = true;
-    public int Mana =200;
+    public int Mana =10;
 
 
 
    private Player() {
         this.isAlive = true;
         this.velocity = new Vector2D();
-        width=50;
-        height=50;
+        width=100;
+        height=100;
         this.boxCollider = new BoxCollider(width, height);
-        this.renderer = new ImageRenderer("resources/images/0x72_16x16DungeonTileset.v4.jpg", width, height);
+        this.renderer = new ImageRenderer("resources/images/3.png", width, height);
         this.ak47 = new AK47();
         this.kar98 = new Kar98();
         this.shotGun = new ShotGun();

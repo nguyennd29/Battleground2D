@@ -5,6 +5,7 @@ import base.Vector2D;
 import game.boss.Boss;
 import game.enemy.Enemies;
 import game.enemyfollow.EnemyFollow;
+import game.platforms.Platform;
 import physic.BoxCollider;
 import physic.PhysicBody;
 import physic.RunHitObject;
@@ -23,7 +24,7 @@ public class BulletPlayer extends GameObject implements PhysicBody {
         this.damage=10;
         this.runHitObject = new RunHitObject(
                 EnemyFollow.class,
-                Enemies.class, Boss.class);
+                Enemies.class, Boss.class, Platform.class);
 
     }
 
