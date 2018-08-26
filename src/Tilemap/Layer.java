@@ -2,6 +2,7 @@ package Tilemap;
 
 import base.GameObject;
 import base.GameObjectManager;
+import game.NormalBox.Box;
 import game.background.BackgroundTile;
 import game.platforms.Platform;
 
@@ -23,11 +24,23 @@ public class Layer {
 
                    GameObjectManager.instance.add(platform);
                }
-               if(mapData==5) {
+              else if(mapData==5) {
                    BackgroundTile backgroundTile=BackgroundTile.create(mapData);
                    backgroundTile.position.set(50*titleX,titleY*50);
 
                    GameObjectManager.instance.add(backgroundTile);
+               }
+
+               else if(mapData==7) {
+                   BackgroundTile backgroundTile=BackgroundTile.create(5);
+                   backgroundTile.position.set(50*titleX,titleY*50);
+
+                   GameObjectManager.instance.add(backgroundTile);
+
+                   Box box =Box.create(mapData);
+                   box.position.set(50*titleX,titleY*50);
+                   System.out.println(box.position.x);
+                   GameObjectManager.instance.add(box);
                }
 
                else if(mapData!=0){

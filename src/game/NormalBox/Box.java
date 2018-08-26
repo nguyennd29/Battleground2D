@@ -2,13 +2,14 @@ package game.NormalBox;
 
 import base.GameObject;
 import base.Vector2D;
+import game.platforms.Platform;
 import game.player.BulletPlayer;
 import physic.BoxCollider;
 import physic.PhysicBody;
 import renderer.ImageRenderer;
 
 
-public class Box extends GameObject implements PhysicBody {
+public class Box extends Platform implements PhysicBody {
     private BoxCollider boxCollider;
     public int HP;
     private int width;
@@ -16,10 +17,10 @@ public class Box extends GameObject implements PhysicBody {
 
     public Box() {
         super();
-        HP = 100;
+        HP = 20;
         this.position = new Vector2D();
         width = 50;
-        height = 50;
+        height = 75;
         this.boxCollider = new BoxCollider(width, height);
 
     }
@@ -29,13 +30,12 @@ public class Box extends GameObject implements PhysicBody {
         return boxCollider;
     }
 
-    public static Box create(int backgroundType) {
+    public static Box create(int boxType) {
         Box box = new Box();
-        switch (backgroundType) {
-            case 10:
-                box.renderer = new ImageRenderer("resources/PlatformImage/MossyStoneBricks.png", box.width, box.height);
+        switch (boxType) {
+            case 7:
+                box.renderer = new ImageRenderer("resources/PlatformImage/Crate.png", box.width, box.height);
                 break;
-
 
         }
         return box;
@@ -56,11 +56,12 @@ public class Box extends GameObject implements PhysicBody {
 
     @Override
     public boolean isActive() {
-        return true;
+        return this.isAlive;
     }
 
     public void run() {
         super.run();
         this.boxCollider.position.set(this.position.x - width / 2, this.position.y - height / 2);
     }
+
 }
