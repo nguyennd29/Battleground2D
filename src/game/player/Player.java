@@ -15,8 +15,6 @@ import physic.BoxCollider;
 import physic.PhysicBody;
 import physic.RunHitObject;
 import renderer.ImageRenderer;
-import scene.GameOverScene;
-import scene.SceneManager;
 
 
 public class Player extends GameObject implements PhysicBody {
@@ -34,7 +32,7 @@ public class Player extends GameObject implements PhysicBody {
     public GunKar98 gunKar98;
     public GunShotGun gunShotGun;
     public double angle;
-    public float SPEED = 5;
+    public float SPEED = 15;
     private int width;
     private int height;
     public boolean haveBulletAK = false;
@@ -192,7 +190,6 @@ public class Player extends GameObject implements PhysicBody {
         }
         else{
             this.isAlive = false;
-            SceneManager.instance.changeScene(new GameOverScene());
         }
     }
 

@@ -18,6 +18,7 @@ public class BulletPlayer extends GameObject implements PhysicBody {
     public BoxCollider boxCollider;
     public RunHitObject runHitObject;
     public int damage;
+
     public BulletPlayer() {
         this.velocity = new Vector2D();
 

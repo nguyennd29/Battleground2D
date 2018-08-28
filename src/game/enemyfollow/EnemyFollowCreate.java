@@ -15,15 +15,9 @@ public class EnemyFollowCreate extends GameObject {
 
 
     public EnemyFollowCreate() {
-<<<<<<< Updated upstream
-        this.rd = new Random();
-         this.frameCounter = new FrameCounter(100);
-
-=======
         this.random = new Random();
         this.frameCounter = new FrameCounter(100);
         this.configAction();
->>>>>>> Stashed changes
     }
 
     public void configAction() {

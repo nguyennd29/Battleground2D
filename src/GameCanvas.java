@@ -9,10 +9,9 @@ import game.ViewPort;
 
 
 import game.boss.CreateBoss;
+import game.enemy.EnemyCreate;
 import game.enemyfollow.EnemyFollowCreate;
 import game.player.Player;
-import scene.GamePlayScene;
-import scene.SceneManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,14 +24,17 @@ public class GameCanvas extends JPanel {
     private BufferedImage backBuffered;
     public Player player;
     private Graphics2D g2d;
-//    private ViewPort viewPort;
-
+    //    private ViewPort viewPort;
+    Vector2D initPosition= new Vector2D(600,2000);
 
     public GameCanvas() {
         this.setSize(Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT);
+
         setupBackBuffered();
         this.setBackground(Color.black);
-        SceneManager.instance.changeScene(new GamePlayScene());
+
+        setupCharacter();
+
 //        this.viewPort=new ViewPort();
         ViewPort.instance.getFollowOffset().set(-Settings.GAMEPLAY_WIDTH/2,-Settings.GAMEPLAY_HEIGHT/2);
         this.setVisible(true);
@@ -43,6 +45,28 @@ public class GameCanvas extends JPanel {
         this.backBuffered = new BufferedImage(Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT, BufferedImage.TYPE_INT_ARGB);
         this.g2d =(Graphics2D) this.backBuffered.getGraphics();
     }
+
+    private void setupCharacter() {
+//        GameObjectManager.instance.add(new Background());
+        GameObjectManager.instance.add(new EnemyFollowCreate());
+        GameObjectManager.instance.add(new EnemyCreate());
+        GameObjectManager.instance.add(new CreateBoss());
+        GameObjectManager.instance.add(new CreateGunAK47());
+        GameObjectManager.instance.add(new CreateGunKar98());
+        GameObjectManager.instance.add(new CreateDesertEagle());
+        GameObjectManager.instance.add(new CreateGunShotGun());
+        this.setupPlayer();
+
+    }
+
+
+    private void setupPlayer() {
+        Player.instance.position.set(initPosition);
+
+        GameObjectManager.instance.add(Player.instance);
+
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
@@ -63,8 +87,5 @@ public class GameCanvas extends JPanel {
 
         GameObjectManager.instance.runAll();
         ViewPort.instance.follow(Player.instance);
-        SceneManager.instance.performChangeSceneIfNeeded();
-        }
     }
-
-
+}
