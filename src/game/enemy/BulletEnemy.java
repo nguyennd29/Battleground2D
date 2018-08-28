@@ -18,8 +18,8 @@ public class BulletEnemy extends GameObject implements PhysicBody {
     public RunHitObject runHitObject;
 
     public BulletEnemy() {
-        this.width = 20;
-        this.height = 20;
+        this.width = 30;
+        this.height = 30;
         this.velocity = new Vector2D();
         this.renderer = new ImageRenderer("resources/Bullet Image/EnemyBullet.png", width, height);
         this.boxCollider = new BoxCollider(width, height);
