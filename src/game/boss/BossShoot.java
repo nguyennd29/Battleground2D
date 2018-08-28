@@ -6,10 +6,11 @@ import base.GameObjectManager;
 import base.Vector2D;
 
 public class BossShoot implements Attribute<Boss> {
+
     private FrameCounter frameCounter;
 
     public BossShoot() {
-        this.frameCounter = new FrameCounter(50);
+        this.frameCounter = new FrameCounter(80);
     }
 
     @Override
@@ -17,11 +18,9 @@ public class BossShoot implements Attribute<Boss> {
 
         if (this.frameCounter.run()) {
             for (double angle = 0.0; angle < 360.0; angle += 360.0 / 10) {
-                BulletBoss  bulletBoss = GameObjectManager.instance.recycle(BulletBoss.class);
+                BulletBoss bulletBoss = GameObjectManager.instance.recycle(BulletBoss.class);
                 bulletBoss.position.set(gameObject.position);
-                bulletBoss.velocity.set(
-                        (new Vector2D(2, 0)).rotate(angle)
-                );
+                bulletBoss.velocity.set((new Vector2D(2, 0)).rotate(angle));
             }
             this.frameCounter.reset();
         }

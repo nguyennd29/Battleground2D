@@ -1,4 +1,4 @@
-package game.enemy;
+package game.enemyfollow;
 
 import base.GameObject;
 import base.Vector2D;
@@ -10,14 +10,13 @@ import physic.PhysicBody;
 import physic.RunHitObject;
 import renderer.ImageRenderer;
 
-
-public class BulletEnemy extends GameObject implements PhysicBody {
+public class BulletEnemyFollow extends GameObject implements PhysicBody {
 
     public Vector2D velocity;
-    public BoxCollider boxCollider;
     public RunHitObject runHitObject;
+    public BoxCollider boxCollider;
 
-    public BulletEnemy() {
+    public BulletEnemyFollow() {
         this.velocity = new Vector2D();
         this.renderer = new ImageRenderer("resources/images/circle.png", 10, 10);
         this.boxCollider = new BoxCollider(10, 10);
@@ -32,22 +31,21 @@ public class BulletEnemy extends GameObject implements PhysicBody {
 
         this.runHitObject.run(this);
 
-        this.boxCollider.position.set(this.position.x - 5f, this.position.y - 5f);
-    }
-
-    @Override
-    public BoxCollider getBoxCollider() {
-        return this.boxCollider;
+        this.boxCollider.position.set(this.position.x - 5, this.position.y - 5);
     }
 
     @Override
     public void getHit(GameObject gameObject) {
         this.isAlive = false;
-
     }
 
     @Override
     public boolean isActive() {
         return isAlive;
+    }
+
+    @Override
+    public BoxCollider getBoxCollider() {
+        return this.boxCollider;
     }
 }

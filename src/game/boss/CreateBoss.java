@@ -22,12 +22,12 @@ public class CreateBoss extends GameObject {
         this.addAction(
                 new LimitAction(1,
                         new SequenceAction(
-                                new WaitAction(100),
+                                new WaitAction(500),
                                 new ActionAdapter() {
                                     @Override
                                     public boolean run(GameObject owner) {
                                         Boss boss = GameObjectManager.instance.recycle(Boss.class);
-                                        boss.position.set(800,300);
+                                        boss.position.set(8100, 4500);
                                         boss.velocity.set(0,0);
                                         return true;
                                     }

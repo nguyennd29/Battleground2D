@@ -16,12 +16,11 @@ public class Boss extends GameObject implements PhysicBody {
 
     public int HP;
 
-
     public Boss() {
-        this.renderer = new ImageRenderer("resources/images/FlameDemon Evolved.png", 60, 60);
+        this.renderer = new ImageRenderer("resources/images/FlameDemon Evolved.png", 130, 130);
         this.velocity = new Vector2D();
         this.HP=400;
-        this.boxCollider = new BoxCollider(60, 60);
+        this.boxCollider = new BoxCollider(130, 130);
         this.attributes.add(new BossShoot());
 
     }
@@ -32,7 +31,7 @@ public class Boss extends GameObject implements PhysicBody {
         super.run();
         this.position.addUp(this.velocity);
 
-        this.boxCollider.position.set(this.position.x - 30, this.position.y - 30);
+        this.boxCollider.position.set(this.position.x - 65, this.position.y - 65);
 
     }
 

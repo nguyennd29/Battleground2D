@@ -2,6 +2,7 @@ package game.boss;
 
 import base.GameObject;
 import base.Vector2D;
+import game.NormalBox.Box;
 import game.platforms.Platform;
 import physic.BoxCollider;
 import physic.PhysicBody;
@@ -18,7 +19,8 @@ public class BulletBoss extends GameObject implements PhysicBody {
         this.velocity = new Vector2D();
         this.renderer = new ImageRenderer("resources/images/circle.png", 10, 10);
         this.boxCollider = new BoxCollider(10, 10);
-        this.runHitObject = new RunHitObject(Platform.class);
+        this.runHitObject = new RunHitObject(
+                Platform.class, Box.class);
     }
 
     @Override

@@ -17,25 +17,20 @@ public class EnemyFollow extends GameObject implements PhysicBody {
 
     public EnemyFollow() {
         this.velocity = new Vector2D();
-        this.renderer = new ImageRenderer("resources/images/FlameDemon Evolved.png", 50, 50);
-        this.boxCollider = new BoxCollider(50, 50);
-         this.HP = 200;
+        this.renderer = new ImageRenderer("resources/images/FlameDemon Evolved.png", 70, 70);
+        this.boxCollider = new BoxCollider(70, 70);
+        this.attributes.add(new EnemyFollowShoot());
+        this.HP = 200;
     }
 
     @Override
     public void run() {
         super.run();
-        update();
         this.position.addUp(this.velocity);
-        this.boxCollider.position.set(this.position.x - 25, this.position.y - 25);
+        this.boxCollider.position.set(this.position.x - 35, this.position.y - 35);
 
     }
 
-
-    public void update() {
-
-        this.velocity.set(GameObjectManager.instance.findPlayer().position.subtract(this.position).normalized().multiply(1.4f));
-    }
 
     @Override
     public BoxCollider getBoxCollider() {
