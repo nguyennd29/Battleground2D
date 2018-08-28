@@ -37,7 +37,7 @@ public class CreateGunShotGun extends GameObject {
                                         gunShotGun1.position.set(2888,4776);
                                         gunShotGun2.position.set(1648,400);
                                         gunShotGun3.position.set(800,1440);
-                                        gunShotGun3.position.set(4000,1440);
+                                        gunShotGun4.position.set(4000,1440);
                                         gunShotGun5.position.set(2242,1622);
                                         return true;
                                     }
