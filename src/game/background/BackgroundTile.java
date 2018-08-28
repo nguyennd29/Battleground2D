@@ -8,8 +8,6 @@ import renderer.ImageRenderer;
 
 
 public class BackgroundTile extends GameObject {
-    private int width;
-    private int height;
 
     public BackgroundTile() {
         super();
@@ -22,13 +20,13 @@ public class BackgroundTile extends GameObject {
 
     public static BackgroundTile create(int backgroundType) {
         BackgroundTile backgroundTile = new BackgroundTile();
-        switch (backgroundType) {
-            case 5:
-                backgroundTile.renderer = new ImageRenderer("resources/PlatformImage/bgtile.png", backgroundTile.width, backgroundTile.height);
-                break;
 
 
-        }
+        backgroundTile.renderer = new ImageRenderer("resources/mapcreate/bg1.png", backgroundTile.width, backgroundTile.height);
+
+
+
+
         return backgroundTile;
     }
 

@@ -16,11 +16,12 @@ public class Enemies extends GameObject implements PhysicBody {
     public int HP;
 
     public Enemies() {
-
+        this.width = 80;
+        this.height = 90;
         this.velocity = new Vector2D();
-        this.renderer = new ImageRenderer("resources/images/FlameDemon Evolved.png", 70, 70);
+        this.renderer = new ImageRenderer("resources/images/Vampire.png", width, height);
         this.HP = 100;
-        this.boxCollider = new BoxCollider(70, 70);
+        this.boxCollider = new BoxCollider(width, height);
         this.attributes.add(new EnemyShoot());
     }
 
@@ -28,7 +29,7 @@ public class Enemies extends GameObject implements PhysicBody {
     public void run() {
         super.run();
         this.position.addUp(velocity);
-        this.boxCollider.position.set(this.position.x - 35, this.position.y - 35);
+        this.boxCollider.position.set(this.position.x - width / 2, this.position.y - height / 2);
     }
 
     @Override

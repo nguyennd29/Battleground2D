@@ -18,9 +18,11 @@ public class BulletEnemy extends GameObject implements PhysicBody {
     public RunHitObject runHitObject;
 
     public BulletEnemy() {
+        this.width = 20;
+        this.height = 20;
         this.velocity = new Vector2D();
-        this.renderer = new ImageRenderer("resources/images/circle.png", 10, 10);
-        this.boxCollider = new BoxCollider(10, 10);
+        this.renderer = new ImageRenderer("resources/Bullet Image/EnemyBullet.png", width, height);
+        this.boxCollider = new BoxCollider(width, height);
         this.runHitObject = new RunHitObject(
                 Platform.class, Box.class, BulletPlayer.class);
     }
@@ -32,7 +34,7 @@ public class BulletEnemy extends GameObject implements PhysicBody {
 
         this.runHitObject.run(this);
 
-        this.boxCollider.position.set(this.position.x - 5f, this.position.y - 5f);
+        this.boxCollider.position.set(this.position.x - width / 2, this.position.y - height / 2);
     }
 
     @Override

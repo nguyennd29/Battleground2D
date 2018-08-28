@@ -12,7 +12,7 @@ public class ShotGun extends GunObject {
         this.lastTime = 0;
         this.firingRate = 2;
         this.recoilRate = 20;
-        this.bulletSpeed = 30;
+        this.bulletSpeed = 60;
         this.manaCost = 10;
     }
 

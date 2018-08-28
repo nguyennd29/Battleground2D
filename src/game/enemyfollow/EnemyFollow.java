@@ -16,8 +16,10 @@ public class EnemyFollow extends GameObject implements PhysicBody {
     private int HP;
 
     public EnemyFollow() {
+        width = 70;
+        height = 70;
         this.velocity = new Vector2D();
-        this.renderer = new ImageRenderer("resources/images/FlameDemon Evolved.png", 70, 70);
+        this.renderer = new ImageRenderer("resources/images/Alchemist.png", 100, 100);
         this.boxCollider = new BoxCollider(70, 70);
         this.attributes.add(new EnemyFollowShoot());
         this.HP = 200;

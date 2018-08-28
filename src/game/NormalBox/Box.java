@@ -32,12 +32,10 @@ public class Box extends Platform implements PhysicBody {
 
     public static Box create(int boxType) {
         Box box = new Box();
-        switch (boxType) {
-            case 7:
-                box.renderer = new ImageRenderer("resources/PlatformImage/Crate.png", box.width, box.height);
-                break;
 
-        }
+        box.renderer = new ImageRenderer("resources/PlatformImage/Crate.png", box.width, box.height);
+
+
         return box;
     }
 

@@ -7,8 +7,7 @@ import java.awt.*;
 
 public class BoxCollider extends GameObject {
     public Vector2D position;
-    private int width;
-    private int height;
+
 
     public BoxCollider (int width, int height) {
         this.width = width;

@@ -19,8 +19,9 @@ public class EnemyShoot implements Attribute<Enemies> {
         if (frameCounter.run()) {
                 BulletEnemy bulletEnemy = GameObjectManager.instance.recycle(BulletEnemy.class);
                 bulletEnemy.position.set(gameObject.position);
-                bulletEnemy.velocity.set(GameObjectManager.instance.findPlayer().position.subtract(gameObject.position).normalized().multiply(3f));
-                frameCounter.reset();
+            bulletEnemy.velocity.set(GameObjectManager.instance.findPlayer().position.subtract(gameObject.position).normalized().multiply(30));
+
+            frameCounter.reset();
             }
     }
 }

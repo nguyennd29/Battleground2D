@@ -20,10 +20,12 @@ public class BulletPlayer extends GameObject implements PhysicBody {
     public int damage;
 
     public BulletPlayer() {
+        this.width = 30;
+        this.height = 30;
         this.velocity = new Vector2D();
 
-        this.renderer = new ImageRenderer("resources/images/circle.png", 5, 5);
-        this.boxCollider = new BoxCollider(5, 5);
+        this.renderer = new ImageRenderer("resources/Bullet Image/PlayerBullet2.png", width, height);
+        this.boxCollider = new BoxCollider(width, height);
         this.damage=10;
         this.runHitObject = new RunHitObject(
                 EnemyFollow.class,
@@ -35,7 +37,7 @@ public class BulletPlayer extends GameObject implements PhysicBody {
     public void run() {
         super.run();
         this.position.addUp(this.velocity);
-        this.boxCollider.position.set(this.position.x - 2.5f, this.position.y - 2.5f);
+        this.boxCollider.position.set(this.position.x - width / 2, this.position.y - height / 2);
         this.runHitObject.run(this);
     }
 

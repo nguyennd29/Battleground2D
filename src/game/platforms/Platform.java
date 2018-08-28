@@ -15,8 +15,8 @@ public class Platform extends GameObject implements PhysicBody {
     public Platform() {
         super();
         this.position=new Vector2D();
-        width=50;
-        height=75;
+        this.width = 50;
+        this.height = 75;
         this.boxCollider = new BoxCollider(width,height);
 
     }
@@ -29,16 +29,16 @@ public class Platform extends GameObject implements PhysicBody {
     public static Platform create(int platformType) {
         Platform platform = new Platform();
         switch (platformType) {
-            case 1:
+            case 6:
                 platform.renderer = new ImageRenderer("resources/PlatformImage/MossyStoneBricks.png", platform.width, platform.height);
                 break;
-            case 2:
+            case 3:
                 platform.renderer = new ImageRenderer("resources/PlatformImage/lavabrick.png", platform.width, platform.height);
                 break;
-            case 3:
+            case 5:
                 platform.renderer = new ImageRenderer("resources/PlatformImage/Torch.png", platform.width, platform.height);
                 break;
-            case 4:
+            case 1:
                 platform.width*=8;
                 platform.height*=8;
                 platform.renderer = new ImageRenderer("resources/PlatformImage/LavaFountain.png", platform.width, platform.height-147);

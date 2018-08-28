@@ -16,8 +16,10 @@ public class BulletBoss extends GameObject implements PhysicBody {
     public BoxCollider boxCollider;
 
     public BulletBoss() {
+        this.width = 10;
+        this.height = 10;
         this.velocity = new Vector2D();
-        this.renderer = new ImageRenderer("resources/images/circle.png", 10, 10);
+        this.renderer = new ImageRenderer("resources/images/circle.png", width, height);
         this.boxCollider = new BoxCollider(10, 10);
         this.runHitObject = new RunHitObject(
                 Platform.class, Box.class);

@@ -15,8 +15,8 @@ public class GunAK47 extends GameObject implements PhysicBody {
 
 
     public GunAK47 (){
-        this.renderer = new ImageRenderer("resources/images/1.png", 50, 50);
-        this.boxCollider = new BoxCollider(50, 50);
+        this.renderer = new ImageRenderer("resources/GunImage/GrenadeSMG.png", 70, 70);
+        this.boxCollider = new BoxCollider(70, 70);
         this.runHitObject = new RunHitObject(Player.class);
     }
 

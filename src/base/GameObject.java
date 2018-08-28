@@ -17,6 +17,8 @@ public class GameObject {
 
     public boolean isAlive;
 
+    public int width;
+    public int height;
 
     public List<Attribute> attributes;
 
@@ -48,5 +50,12 @@ public class GameObject {
 
     public void addAction(Action action) {
         this.actions.add(action);
+    }
+
+    public boolean isInViewport(ViewPort viewPort) {
+        Rectangle r1 = new Rectangle((int) this.position.x, (int) this.position.y, this.width, this.height);
+        Rectangle r2 = new Rectangle((int) viewPort.position.x, (int) viewPort.position.y, viewPort.width, viewPort.height);
+
+        return r2.contains(r1) || r2.intersects(r1);
     }
 }

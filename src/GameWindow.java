@@ -26,9 +26,9 @@ public class GameWindow extends JFrame {
     }
 
     private void addWall(){
-        Map map = Map.load("resources/mapcreate/bgtestt.json");
-        System.out.println(map);
+        Map map = Map.load("resources/mapcreate/test.json");
         map.generate();
+        System.out.println(map);
     }
     private void setupGameCanvas() {
         this.gameCanvas = new GameCanvas();

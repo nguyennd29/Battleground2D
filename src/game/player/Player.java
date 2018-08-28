@@ -48,8 +48,8 @@ public class Player extends GameObject implements PhysicBody {
         this.velocity = new Vector2D();
         width=100;
         height=100;
-        this.boxCollider = new BoxCollider(width, height);
-        this.renderer = new ImageRenderer("resources/PlatformImage/PlayerImage.png", width, height);
+       this.boxCollider = new BoxCollider(width * 3 / 5, height * 4 / 5);
+       this.renderer = new ImageRenderer("resources/images/FirePlayer.png", width, height);
         this.ak47 = new AK47();
         this.kar98 = new Kar98();
         this.shotGun = new ShotGun();
@@ -70,7 +70,7 @@ public class Player extends GameObject implements PhysicBody {
 //        this.kar98.shoot(this);
 
 
-        this.boxCollider.position.set(this.position.x - this.width/2, this.position.y - this.height/2);
+        this.boxCollider.position.set(this.position.x - this.width / 3 + this.width / 9, this.position.y - this.height / 3 - this.width / 9);
         this.runHitObject.run(this);
         if(this.haveBulletDesertEagle == true){
             this.gunDesertEagle.isHaveBulletDesertEagle();

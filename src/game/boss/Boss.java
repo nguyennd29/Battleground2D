@@ -17,7 +17,9 @@ public class Boss extends GameObject implements PhysicBody {
     public int HP;
 
     public Boss() {
-        this.renderer = new ImageRenderer("resources/images/FlameDemon Evolved.png", 130, 130);
+        this.width = 130;
+        this.height = 130;
+        this.renderer = new ImageRenderer("resources/images/FlameDemon Evolved.png", width, height);
         this.velocity = new Vector2D();
         this.HP=400;
         this.boxCollider = new BoxCollider(130, 130);

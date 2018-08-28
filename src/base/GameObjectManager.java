@@ -42,6 +42,7 @@ public class GameObjectManager {
         this.list
                 .stream()
                 .filter(gameObject -> gameObject instanceof BackgroundTile)
+                .filter(gameObject -> gameObject.isInViewport(viewPort))
                 .forEach(gameObject -> gameObject.render(g2d, viewPort));
     }
 
@@ -50,6 +51,7 @@ public class GameObjectManager {
                 .stream()
                 .filter(gameObject -> gameObject.isAlive)
                 .filter(gameObject -> !(gameObject instanceof BackgroundTile))
+//                .filter(gameObject -> gameObject.isInViewport(viewPort))
                 .forEach(gameObject -> gameObject.render(g2d, viewPort));
     }
 
@@ -102,4 +104,6 @@ public class GameObjectManager {
         this.list.clear();
         this.tempList.clear();
     }
+
+
 }
