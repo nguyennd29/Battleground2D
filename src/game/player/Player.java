@@ -15,6 +15,8 @@ import physic.BoxCollider;
 import physic.PhysicBody;
 import physic.RunHitObject;
 import renderer.ImageRenderer;
+import scene.GameOverScene;
+import scene.SceneManager;
 
 
 public class Player extends GameObject implements PhysicBody {
@@ -190,6 +192,7 @@ public class Player extends GameObject implements PhysicBody {
         }
         else{
             this.isAlive = false;
+            SceneManager.instance.changeScene(new GameOverScene());
         }
     }
 

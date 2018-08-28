@@ -13,7 +13,7 @@ public class EnemyFollowCreate extends GameObject {
 
     public EnemyFollowCreate() {
         this.rd = new Random();
-         this.frameCounter = new FrameCounter(300);
+         this.frameCounter = new FrameCounter(100);
 
     }
 

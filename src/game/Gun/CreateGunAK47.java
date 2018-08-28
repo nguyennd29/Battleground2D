@@ -23,12 +23,26 @@ public class CreateGunAK47 extends GameObject {
                 new LimitAction(
                         10,
                         new SequenceAction(
-                                new WaitAction(150),
+                                new WaitAction(0),
                                 new ActionAdapter() {
                                     @Override
                                     public boolean run(GameObject owner) {
-                                        GunAK47 GunAK47 = GameObjectManager.instance.recycle(GunAK47.class);
-                                        GunAK47.position.set(450, 2000);
+                                        GunAK47 GunAK471 = GameObjectManager.instance.recycle(GunAK47.class);
+                                        GunAK47 GunAK472 = GameObjectManager.instance.recycle(GunAK47.class);
+                                        GunAK47 GunAK473 = GameObjectManager.instance.recycle(GunAK47.class);
+                                        GunAK47 GunAK474 = GameObjectManager.instance.recycle(GunAK47.class);
+                                        GunAK47 GunAK475 = GameObjectManager.instance.recycle(GunAK47.class);
+                                        GunAK47 GunAK476 = GameObjectManager.instance.recycle(GunAK47.class);
+                                        GunAK47 GunAK477 = GameObjectManager.instance.recycle(GunAK47.class);
+
+                                        GunAK471.position.set(2730, 2208);
+                                        GunAK472.position.set(2746, 1959);
+                                        GunAK473.position.set(350, 2000);
+                                        GunAK474.position.set(2176, 3794);
+                                        GunAK475.position.set(1170, 4117);
+                                        GunAK476.position.set(3147, 4765);
+                                        GunAK477.position.set(4421, 2464);
+
                                         return true;
                                     }
                                 }

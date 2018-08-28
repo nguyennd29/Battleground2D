@@ -21,6 +21,9 @@ public class MouseInput implements MouseListener, MouseMotionListener {
     public void mousePressed(MouseEvent e) {
         this.clicked = true;
         vector2D = new Vector2D(e.getX()+ ViewPort.instance.position.x, e.getY()+ViewPort.instance.position.y);
+        System.out.println(e.getX()+ ViewPort.instance.position.x);
+        System.out.println(e.getX()+ ViewPort.instance.position.y);
+
 
     }
 
