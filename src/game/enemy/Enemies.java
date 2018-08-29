@@ -22,7 +22,7 @@ public class Enemies extends GameObject implements PhysicBody {
         this.height = 90;
         this.velocity = new Vector2D();
         this.renderer = new ImageRenderer("resources/images/Vampire.png", width, height);
-        this.HP = 100;
+        this.HP = 400;
         this.boxCollider = new BoxCollider(width, height);
         this.attributes.add(new EnemyShoot());
     }
@@ -44,7 +44,7 @@ public class Enemies extends GameObject implements PhysicBody {
         if (gameObject instanceof BulletPlayer) this.HP -= Player.instance.damage;
         if (this.HP <= 0) {
             this.isAlive = false;
-            this.HP = 100;
+            this.HP = 400;
         }
     }
 

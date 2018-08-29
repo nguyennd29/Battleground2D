@@ -21,7 +21,7 @@ public class Boss extends GameObject implements PhysicBody {
         this.height = 130;
         this.renderer = new ImageRenderer("resources/images/FlameDemon Evolved.png", width, height);
         this.velocity = new Vector2D();
-        this.HP=400;
+        this.HP = 2000;
         this.boxCollider = new BoxCollider(130, 130);
         this.attributes.add(new BossShoot());
 
@@ -42,7 +42,7 @@ public class Boss extends GameObject implements PhysicBody {
         if (gameObject instanceof BulletPlayer) this.HP -= ((BulletPlayer) gameObject).damage;
         if (this.HP <= 0) {
             this.isAlive = false;
-            this.HP = 400;
+            this.HP = 2000;
         }
     }
 

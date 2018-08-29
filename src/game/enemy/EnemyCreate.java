@@ -68,8 +68,8 @@ public class EnemyCreate extends GameObject {
             public boolean run(GameObject owner) {
                 for (int i = 0; i < enemies_2.size()-1; i++) {
                     for (int j = 2; j < enemies_2.size(); j++) {
-                        enemies_2.get(i).position.set(5100 + 1000 * i, 1100);
-                        enemies_2.get(j).position.set(5100, 1100 + 600 * j);
+                        enemies_2.get(i).position.set(5150 + 900 * i, 1100);
+                        enemies_2.get(j).position.set(5150, 1100 + 600 * j);
                     }
                 }
                 return true;
@@ -94,8 +94,8 @@ public class EnemyCreate extends GameObject {
             public boolean run(GameObject owner) {
                 for (int i = 0; i < enemies_4.size()-1; i++) {
                     for (int j = 2; j < enemies_4.size(); j++) {
-                        enemies_4.get(i).position.set(5100 + 900 * i, 4000);
-                        enemies_4.get(j).position.set(5100, 4000 + 600 * j);
+                        enemies_4.get(i).position.set(5150 + 900 * i, 4000);
+                        enemies_4.get(j).position.set(5150, 4000 + 600 * j);
                     }
                 }
                 return true;
@@ -106,10 +106,16 @@ public class EnemyCreate extends GameObject {
             @Override
             public boolean run(GameObject owner) {
                 for (int i = 0; i < enemies_1.size(); i++) {
-                    enemies_1.get(i).velocity.set(-3, 0);
-                    enemies_2.get(i).velocity.set(-3, 0);
-                    enemies_3.get(i).velocity.set(-3, 0);
-                    enemies_4.get(i).velocity.set(-3, 0);
+                    enemies_1.get(i).velocity.set(-5, 0);
+                }
+                for (int i = 0; i < enemies_2.size(); i++) {
+                    enemies_2.get(i).velocity.set(-5, 0);
+                }
+                for (int i = 0; i < enemies_3.size(); i++) {
+                    enemies_3.get(i).velocity.set(-5, 0);
+                }
+                for (int i = 0; i < enemies_4.size(); i++) {
+                    enemies_4.get(i).velocity.set(-5, 0);
                 }
                 return true;
             }
@@ -119,10 +125,16 @@ public class EnemyCreate extends GameObject {
             @Override
             public boolean run(GameObject owner) {
                 for (int i = 0; i < enemies_1.size(); i++) {
-                    enemies_1.get(i).velocity.set(3, 0);
-                    enemies_2.get(i).velocity.set(3, 0);
-                    enemies_3.get(i).velocity.set(3, 0);
-                    enemies_4.get(i).velocity.set(3, 0);
+                    enemies_1.get(i).velocity.set(5, 0);
+                }
+                for (int i = 0; i < enemies_2.size(); i++) {
+                    enemies_2.get(i).velocity.set(5, 0);
+                }
+                for (int i = 0; i < enemies_3.size(); i++) {
+                    enemies_3.get(i).velocity.set(5, 0);
+                }
+                for (int i = 0; i < enemies_4.size(); i++) {
+                    enemies_4.get(i).velocity.set(5, 0);
                 }
                 return true;
             }
@@ -133,8 +145,14 @@ public class EnemyCreate extends GameObject {
             public boolean run(GameObject owner) {
                 for (int i = 0; i < enemies_1.size(); i++) {
                     enemies_1.get(i).velocity.set(0, 0);
+                }
+                for (int i = 0; i < enemies_2.size(); i++) {
                     enemies_2.get(i).velocity.set(0, 0);
+                }
+                for (int i = 0; i < enemies_3.size(); i++) {
                     enemies_3.get(i).velocity.set(0, 0);
+                }
+                for (int i = 0; i < enemies_4.size(); i++) {
                     enemies_4.get(i).velocity.set(0, 0);
                 }
                 return true;
@@ -145,11 +163,18 @@ public class EnemyCreate extends GameObject {
             @Override
             public boolean run(GameObject owner) {
                 EnemyShoot enemyShoot = new EnemyShoot();
+
                 for (int i = 0; i < enemies_1.size()-1; i++) {
-                    for (int j = 2; j < enemies_1.size(); j++) {
-                        enemyShoot.run(enemies_1.get(i));
-                        enemyShoot.run(enemies_1.get(j));
-                    }
+                    enemyShoot.run(enemies_1.get(i));
+                }
+                for (int i = 0; i < enemies_2.size(); i++) {
+                    enemyShoot.run(enemies_2.get(i));
+                }
+                for (int i = 0; i < enemies_3.size(); i++) {
+                    enemyShoot.run(enemies_3.get(i));
+                }
+                for (int i = 0; i < enemies_4.size(); i++) {
+                    enemyShoot.run(enemies_4.get(i));
                 }
                 return true;
             }
@@ -163,13 +188,13 @@ public class EnemyCreate extends GameObject {
                                 setPositionAction1, setPositionAction2, setPositionAction3, setPositionAction4,
                                 new RepeatActionForever(
                                         new SequenceAction(
-                                                moveLeftAction, new WaitAction(40),
-                                                stopAction,new WaitAction(50),
-                                                shootAction, new WaitAction(50),
-                                                moveRightAction, new WaitAction(120),
-                                                stopAction,new WaitAction(50),
-                                                shootAction, new WaitAction(50),
-                                                moveLeftAction, new WaitAction(80),
+                                                moveLeftAction, new WaitAction(10),
+                                                stopAction,new WaitAction(30),
+                                                shootAction, new WaitAction(30),
+                                                moveRightAction, new WaitAction(60),
+                                                stopAction,new WaitAction(30),
+                                                shootAction, new WaitAction(30),
+                                                moveLeftAction, new WaitAction(50),
                                                 waitAction
                                         )
                                 )

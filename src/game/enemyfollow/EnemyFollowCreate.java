@@ -98,10 +98,16 @@ public class EnemyFollowCreate extends GameObject {
             @Override
             public boolean run(GameObject owner) {
                 for (int i = 0; i < enemyFollows_1.size(); i++) {
-                    enemyFollows_1.get(i).velocity.set(0, -3);
-                    enemyFollows_2.get(i).velocity.set(0, -3);
-                    enemyFollows_3.get(i).velocity.set(0, -3);
-                    enemyFollows_4.get(i).velocity.set(0, -3);
+                    enemyFollows_1.get(i).velocity.set(0, -5);
+                }
+                for (int i = 0; i < enemyFollows_2.size(); i++) {
+                    enemyFollows_2.get(i).velocity.set(0, -5);
+                }
+                for (int i = 0; i < enemyFollows_3.size(); i++) {
+                    enemyFollows_3.get(i).velocity.set(0, -5);
+                }
+                for (int i = 0; i < enemyFollows_4.size(); i++) {
+                    enemyFollows_4.get(i).velocity.set(0, -5);
                 }
                 return true;
             }
@@ -111,10 +117,16 @@ public class EnemyFollowCreate extends GameObject {
             @Override
             public boolean run(GameObject owner) {
                 for (int i = 0; i < enemyFollows_1.size(); i++) {
-                    enemyFollows_1.get(i).velocity.set(0, 3);
-                    enemyFollows_2.get(i).velocity.set(0, 3);
-                    enemyFollows_3.get(i).velocity.set(0, 3);
-                    enemyFollows_4.get(i).velocity.set(0, 3);
+                    enemyFollows_1.get(i).velocity.set(0, 5);
+                }
+                for (int i = 0; i < enemyFollows_2.size(); i++) {
+                    enemyFollows_2.get(i).velocity.set(0, 5);
+                }
+                for (int i = 0; i < enemyFollows_3.size(); i++) {
+                    enemyFollows_3.get(i).velocity.set(0, 5);
+                }
+                for (int i = 0; i < enemyFollows_4.size(); i++) {
+                    enemyFollows_4.get(i).velocity.set(0, 5);
                 }
                 return true;
             }
@@ -125,8 +137,14 @@ public class EnemyFollowCreate extends GameObject {
             public boolean run(GameObject owner) {
                 for (int i = 0; i < enemyFollows_1.size(); i++) {
                     enemyFollows_1.get(i).velocity.set(0, 0);
+                }
+                for (int i = 0; i < enemyFollows_2.size(); i++) {
                     enemyFollows_2.get(i).velocity.set(0, 0);
+                }
+                for (int i = 0; i < enemyFollows_3.size(); i++) {
                     enemyFollows_3.get(i).velocity.set(0, 0);
+                }
+                for (int i = 0; i < enemyFollows_4.size(); i++) {
                     enemyFollows_4.get(i).velocity.set(0, 0);
                 }
                 return true;
@@ -137,10 +155,17 @@ public class EnemyFollowCreate extends GameObject {
             @Override
             public boolean run(GameObject owner) {
                 EnemyFollowShoot enemyFollowShoot = new EnemyFollowShoot();
+
                 for (int i = 0; i < enemyFollows_1.size(); i++) {
                     enemyFollowShoot.run(enemyFollows_1.get(i));
+                }
+                for (int i = 0; i < enemyFollows_2.size(); i++) {
                     enemyFollowShoot.run(enemyFollows_2.get(i));
+                }
+                for (int i = 0; i < enemyFollows_3.size(); i++) {
                     enemyFollowShoot.run(enemyFollows_3.get(i));
+                }
+                for (int i = 0; i < enemyFollows_4.size(); i++) {
                     enemyFollowShoot.run(enemyFollows_4.get(i));
                 }
                 return true;
@@ -153,13 +178,13 @@ public class EnemyFollowCreate extends GameObject {
                                 createAction, setPositionAction1, setPositionAction2, setPositionAction3, setPositionAction4,
                                 new RepeatActionForever(
                                         new SequenceAction(
-                                                moveUpAction, new WaitAction(40),
-                                                stopAction,new WaitAction(50),
-                                                shootAction, new WaitAction(50),
-                                                moveDownAction, new WaitAction(120),
-                                                stopAction,new WaitAction(50),
-                                                shootAction, new WaitAction(50),
-                                                moveUpAction, new WaitAction(80),
+                                                moveUpAction, new WaitAction(20),
+                                                stopAction,new WaitAction(10),
+                                                shootAction, new WaitAction(30),
+                                                moveDownAction, new WaitAction(70),
+                                                stopAction,new WaitAction(10),
+                                                shootAction, new WaitAction(30),
+                                                moveUpAction, new WaitAction(50),
                                                 waitAction)
                                 )
                         )

@@ -23,7 +23,7 @@ public class EnemyFollow extends GameObject implements PhysicBody {
         this.renderer = new ImageRenderer("resources/images/Alchemist.png", 100, 100);
         this.boxCollider = new BoxCollider(70, 70);
         this.attributes.add(new EnemyFollowShoot());
-        this.HP = 200;
+        this.HP = 700;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class EnemyFollow extends GameObject implements PhysicBody {
         }
         if (this.HP <= 0) {
             this.isAlive = false;
-            this.HP = 200;
+            this.HP = 700;
         }
     }
 

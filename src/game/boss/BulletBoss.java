@@ -4,6 +4,7 @@ import base.GameObject;
 import base.Vector2D;
 import game.NormalBox.Box;
 import game.platforms.Platform;
+import game.player.BulletPlayer;
 import physic.BoxCollider;
 import physic.PhysicBody;
 import physic.RunHitObject;
@@ -22,7 +23,7 @@ public class BulletBoss extends GameObject implements PhysicBody {
         this.renderer = new ImageRenderer("resources/images/circle.png", width, height);
         this.boxCollider = new BoxCollider(10, 10);
         this.runHitObject = new RunHitObject(
-                Platform.class, Box.class);
+                Platform.class, Box.class, BulletPlayer.class);
     }
 
     @Override

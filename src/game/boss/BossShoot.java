@@ -17,7 +17,7 @@ public class BossShoot implements Attribute<Boss> {
     public void run(Boss gameObject) {
 
         if (this.frameCounter.run()) {
-            for (double angle = 0.0; angle < 360.0; angle += 360.0 / 10) {
+            for (double angle = 0.0; angle < 360.0; angle += 360.0 / 15) {
                 BulletBoss bulletBoss = GameObjectManager.instance.recycle(BulletBoss.class);
                 bulletBoss.position.set(gameObject.position);
                 bulletBoss.velocity.set((new Vector2D(2, 0)).rotate(angle));
