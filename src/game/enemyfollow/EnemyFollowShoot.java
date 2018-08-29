@@ -9,7 +9,7 @@ public class EnemyFollowShoot implements Attribute<EnemyFollow> {
     private FrameCounter frameCounter;
 
     public EnemyFollowShoot() {
-        this.frameCounter = new FrameCounter(20);
+        this.frameCounter = new FrameCounter(15);
     }
 
 
@@ -18,7 +18,7 @@ public class EnemyFollowShoot implements Attribute<EnemyFollow> {
         if (frameCounter.run()) {
             BulletEnemyFollow bulletEnemyFollow = GameObjectManager.instance.recycle(BulletEnemyFollow.class);
             bulletEnemyFollow.position.set(gameObject.position);
-            bulletEnemyFollow.velocity.set(GameObjectManager.instance.findPlayer().position.subtract(gameObject.position).normalized().multiply(15));
+            bulletEnemyFollow.velocity.set(GameObjectManager.instance.findPlayer().position.subtract(gameObject.position).normalized().multiply(7));
             frameCounter.reset();
         }
     }
