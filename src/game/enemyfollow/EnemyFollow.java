@@ -4,6 +4,7 @@ import base.GameObject;
 import base.GameObjectManager;
 import base.Vector2D;
 import game.player.BulletPlayer;
+import game.player.Player;
 import physic.BoxCollider;
 import physic.PhysicBody;
 import renderer.ImageRenderer;
@@ -42,7 +43,7 @@ public class EnemyFollow extends GameObject implements PhysicBody {
     @Override
     public void getHit(GameObject gameObject) {
         if (gameObject instanceof BulletPlayer) {
-            this.HP -= ((BulletPlayer) gameObject).damage;
+            this.HP -= Player.instance.damage;
         }
         if (this.HP <= 0) {
             this.isAlive = false;

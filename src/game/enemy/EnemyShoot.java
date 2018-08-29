@@ -10,7 +10,7 @@ public class EnemyShoot implements Attribute<Enemies> {
     private FrameCounter frameCounter;
 
     public EnemyShoot() {
-        this.frameCounter = new FrameCounter(50);
+        this.frameCounter = new FrameCounter(100);
     }
 
 
@@ -19,7 +19,7 @@ public class EnemyShoot implements Attribute<Enemies> {
         if (frameCounter.run()) {
                 BulletEnemy bulletEnemy = GameObjectManager.instance.recycle(BulletEnemy.class);
                 bulletEnemy.position.set(gameObject.position);
-            bulletEnemy.velocity.set(GameObjectManager.instance.findPlayer().position.subtract(gameObject.position).normalized().multiply(30));
+            bulletEnemy.velocity.set(GameObjectManager.instance.findPlayer().position.subtract(gameObject.position).normalized().multiply(10));
 
             frameCounter.reset();
             }

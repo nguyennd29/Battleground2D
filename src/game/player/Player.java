@@ -39,7 +39,8 @@ public class Player extends GameObject implements PhysicBody {
     public boolean haveBulletKar98 = false;
     public boolean haveBulletShotGun = false;
     public boolean haveBulletDesertEagle = true;
-    public int Mana =10;
+    public int Mana =30;
+    public int damage;
 
 
 
@@ -62,6 +63,7 @@ public class Player extends GameObject implements PhysicBody {
         this.gunKar98 = new GunKar98();
         this.gunDesertEagle = new GunDesertEagle();
         this.gunShotGun = new GunShotGun();
+       this.damage=15;
     }
 
     public void run() {
@@ -164,14 +166,16 @@ public class Player extends GameObject implements PhysicBody {
             this.haveBulletKar98= false;
             this.haveBulletDesertEagle = false;
             this.haveBulletShotGun = false;
+            this.damage = 15;
         }
         else if (gameObject instanceof GunKar98) {
             this.Mana += 100;
             this.isAlive = true;
-            this.haveBulletAK= false;
             this.haveBulletKar98 = true;
+            this.haveBulletAK= false;
             this.haveBulletDesertEagle = false;
             this.haveBulletShotGun = false;
+            this.damage = 70;
         }
         else if (gameObject instanceof  GunDesertEagle){
             this.isAlive = true;
@@ -179,14 +183,16 @@ public class Player extends GameObject implements PhysicBody {
             this.haveBulletAK= false;
             this.haveBulletKar98= false;
             this.haveBulletShotGun = false;
+            this.damage = 15;
         }
         else if (gameObject instanceof GunShotGun) {
             this.Mana += 200;
             this.isAlive = true;
+            this.haveBulletShotGun = true;
             this.haveBulletAK= false;
             this.haveBulletKar98 = false;
             this.haveBulletDesertEagle = false;
-            this.haveBulletShotGun = true;
+            this.damage = 25;
         }
         else{
             this.isAlive = false;

@@ -24,22 +24,18 @@ public class ShotGun extends GunObject {
                 if (currentTime - this.lastTime >= 1_000_000_000 / firingRate) {
                     Random random = new Random();
                     int recoilY = 25 + recoilRate / 2 - random.nextInt(recoilRate);
-                        BulletPlayer bulletPlayer1 = new BulletPlayer();
+                        BulletPlayer bulletPlayer1 = GameObjectManager.instance.recycle(BulletPlayer.class);
                         bulletPlayer1.position.set(gameObject.position);
                         bulletPlayer1.velocity.set(MouseInput.instance.vector2D.subtract(gameObject.position).subtract(0, recoilY).normalized().multiply(bulletSpeed));
-                        GameObjectManager.instance.add(bulletPlayer1);
-                    BulletPlayer bulletPlayer2 = new BulletPlayer();
+                    BulletPlayer bulletPlayer2 = GameObjectManager.instance.recycle(BulletPlayer.class);
                     bulletPlayer2.position.set(gameObject.position);
                     bulletPlayer2.velocity.set(MouseInput.instance.vector2D.subtract(gameObject.position).subtract(0, recoilY).normalized().multiply(bulletSpeed).rotate(5));
-                    GameObjectManager.instance.add(bulletPlayer2);
-                    BulletPlayer bulletPlayer3 = new BulletPlayer();
+                    BulletPlayer bulletPlayer3 = GameObjectManager.instance.recycle(BulletPlayer.class);
                     bulletPlayer3.position.set(gameObject.position);
                     bulletPlayer3.velocity.set(MouseInput.instance.vector2D.subtract(gameObject.position).subtract(0, recoilY).normalized().multiply(bulletSpeed).rotate(-5));
-                    GameObjectManager.instance.add(bulletPlayer3);
-                    BulletPlayer bulletPlayer4 = new BulletPlayer();
+                    BulletPlayer bulletPlayer4 = GameObjectManager.instance.recycle(BulletPlayer.class);
                     bulletPlayer4.position.set(gameObject.position);
                     bulletPlayer4.velocity.set(MouseInput.instance.vector2D.subtract(gameObject.position).subtract(0, recoilY).normalized().multiply(bulletSpeed).rotate(-10));
-                    GameObjectManager.instance.add(bulletPlayer4);
                         this.lastTime = currentTime;
                         Player.instance.Mana -= manaCost;
                     }

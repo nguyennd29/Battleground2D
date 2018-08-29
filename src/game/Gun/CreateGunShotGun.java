@@ -32,13 +32,14 @@ public class CreateGunShotGun extends GameObject {
                                         GunShotGun gunShotGun3 = GameObjectManager.instance.recycle(GunShotGun.class);
                                         GunShotGun gunShotGun4 = GameObjectManager.instance.recycle(GunShotGun.class);
                                         GunShotGun gunShotGun5 = GameObjectManager.instance.recycle(GunShotGun.class);
-
+                                       GunShotGun gunShotGun6 = GameObjectManager.instance.recycle(GunShotGun.class);
 
                                         gunShotGun1.position.set(2888,4776);
                                         gunShotGun2.position.set(1648,400);
                                         gunShotGun3.position.set(800,1440);
-                                        gunShotGun4.position.set(4000,1440);
-                                        gunShotGun5.position.set(2242,1622);
+                                        gunShotGun4.position.set(6238,1616);
+                                        gunShotGun5.position.set(5633,3035);
+                                        gunShotGun6.position.set(2242,1622);
                                         return true;
                                     }
                                 }

@@ -20,6 +20,7 @@ public class GunObject{
         this.recoilRate = 0;
         this.bulletSpeed = 0;
         this.manaCost = 0;
+
     }
 
     public void shoot(GameObject  gameObject){
@@ -29,10 +30,9 @@ public class GunObject{
             if (currentTime - this.lastTime >=1_000_000_000/firingRate) {
                 Random random = new Random();
                 int recoilY=25+recoilRate/2 - random.nextInt(recoilRate);
-                BulletPlayer bulletPlayer = new BulletPlayer();
+                BulletPlayer bulletPlayer = GameObjectManager.instance.recycle(BulletPlayer.class);
                 bulletPlayer.position.set(gameObject.position);
                 bulletPlayer.velocity.set(MouseInput.instance.vector2D.subtract(gameObject.position).subtract(0,recoilY).normalized().multiply(bulletSpeed));
-                GameObjectManager.instance.add(bulletPlayer);
                 this.lastTime = currentTime;
                 Player.instance.Mana -=manaCost;
             }

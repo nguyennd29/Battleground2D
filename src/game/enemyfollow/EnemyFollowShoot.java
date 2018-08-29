@@ -9,7 +9,7 @@ public class EnemyFollowShoot implements Attribute<EnemyFollow> {
     private FrameCounter frameCounter;
 
     public EnemyFollowShoot() {
-        this.frameCounter = new FrameCounter(50);
+        this.frameCounter = new FrameCounter(100);
     }
 
 

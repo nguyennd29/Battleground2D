@@ -26,7 +26,7 @@ public class BulletPlayer extends GameObject implements PhysicBody {
 
         this.renderer = new ImageRenderer("resources/Bullet Image/PlayerBullet2.png", width, height);
         this.boxCollider = new BoxCollider(width, height);
-        this.damage=10;
+        this.damage=15;
         this.runHitObject = new RunHitObject(
                 EnemyFollow.class,
                 Enemies.class, Boss.class, Platform.class, Box.class);
