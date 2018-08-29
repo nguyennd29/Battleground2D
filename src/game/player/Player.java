@@ -8,6 +8,7 @@ import game.boss.BossShoot;
 import game.boss.BulletBoss;
 import game.enemy.BulletEnemy;
 import game.enemy.Enemies;
+import game.enemyfollow.BulletEnemyFollow;
 import game.enemyfollow.EnemyFollow;
 import game.platforms.Platform;
 import input.KeyboardInput;
@@ -57,7 +58,7 @@ public class Player extends GameObject implements PhysicBody {
         this.desertEagle = new DesertEagle();
         this.runHitObject = new RunHitObject(
                 EnemyFollow.class,
-                Enemies.class, BulletEnemy.class, BulletBoss.class);
+                Enemies.class, BulletEnemy.class, BulletBoss.class, BulletEnemyFollow.class);
         this.runHitPlatform = new RunHitObject(Platform.class);
         this.gunAK47 = new GunAK47();
         this.gunKar98 = new GunKar98();
