@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Battleground2D:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Battleground2D_jar</output-path>
+    <root id="archive" name="Battleground2D.jar">
+      <element id="module-output" name="Battleground2D" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
